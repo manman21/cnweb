@@ -26,4 +26,8 @@ $(document).ready(function(){
   function closeNav() {
 	  document.getElementById("mySidenav").style.width = "0";
    }
+   setInterval(function(){
+   $('#myList li:nth-child(odd)').toggleClass('hideShowCase')}
+   ,3000);
+ 
 });

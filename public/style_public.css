@@ -75,6 +75,124 @@ ul.submenu ul li{
 	background-color: white;
 	height: 100%;
 }
+.content-left > div{
+	width:95%;
+	margin: 20px 0px 0px 35px;
+}
+.slide-default{
+	background-color: red;
+	height: 400px;
+}
+.group-slide{
+	background-color: black;
+	height: 100%;
+	width: 100%;
+}
+.img-slide{
+	background-color: green;
+	height: 300px;
+	width: 100%;
+}
+.img-slide ul{
+	margin-bottom: 0px;
+	position: relative;
+}
+.img-slide li{
+	position: absolute;
+}
+.img-slide ul, .img-slide li, .img-slide a, .img-slide img{
+	width:100%;
+	height:  300px;
+	padding-left: 0px;
+}
+.img-choose{
+	background-color: 	grey;
+	width:100%;
+	height: 100px;
+}
+.img-choose ul{
+	background-color: 	red;
+	width:100%;
+	height: 100px;
+	clear: both;
+	padding-left: 0px;
+	margin-bottom: 0px;
+}
+.img-choose li{
+	width:25%;
+	height: 100%;
+	float: left;
+	background-color: black;
+	margin-left: 0px;
+	padding: 5px 5px 5px 5px;
+}
+.img-choose a{
+	width:80%;
+	height: 80%;
+	margin:auto;
+}
+.img-choose img{
+	width:100%;
+	height: 100%;
+}
+.img-choose a:hover{
+	border: 2px solid red;
+}
+
+
+
+
+.ngheGiHomNay, .ngheGiHomNay > div{
+	background-color: #black;
+	width: 100%;
+}
+h2 a{
+	color: #2daaed;
+}
+.ngheGiHomNay ul{
+	width: 100%;
+	height: 200px;
+	clear: both;
+	padding-left: 0px;
+}
+.ngheGiHomNay li{
+	width: 20%;
+	height: 200px;
+	float: left;
+}
+.box-main, .infor{
+	width: 90%;
+}
+.box-main a{
+	width: 100%;
+}
+.bg_action_infor{
+	width: 100%;
+	height: 100%;
+}
+.avatar{
+	width: 100%;
+	height: 100%;
+}
+.avatar img{
+	width: 90%;
+}
+
+
+
+
+.albumHot{
+	background-color: red;
+}
+.mvHot{
+	background-color: yellow;
+}
+.listSong{
+	background-color: red;
+}
+.listVideo{
+	background-color: yellow;
+}
 .right{
 	background-color: black;
 	height: 100%;
@@ -131,43 +249,8 @@ ul.submenu ul li{
 	.nav-small{
 		width: 50px;
 	}
-}
-
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+	.content-left > div{
+		width:100%;
+		margin: 20px 0px 0px 0px;
+	}
 }
