@@ -26,7 +26,7 @@
 			    <img src="images/ic_bigo_talent.png" alt="logo" style="max-width: 100%;height: 30px">
 			</a>
 			  <!-- Links -->
-			<ul id="navmenu"class="navbar-nav display-none">
+			<ul id="navmenu" class="navbar-nav ">
 			    <li class="nav-item">
 			      <a class="nav-link" href="#">Bài Hát</a>
 			      <ul class="submenu hideShowCase">
@@ -293,20 +293,8 @@
 			</ul>
 			
 
-			<ul id="sidenavid"class="navbar-nav hideShowCase">
-				<li  class="nav-item">
-					<div id="mySidenav" class="sidenav">
-					  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					  <a href="#">About</a>
-					  <a href="#">Services</a>
-					  <a href="#">Clients</a>
-					  <a href="#">Contact</a>
-					</div>
-
-
-					<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-				</li>
-			</ul>
+			
+			<span id="sidenavid"class=" hideShowCase"><i class="fas fa-list-ul"></i></span>
 
 
 			<ul class="navbar-nav ml-auto nav-icon">
@@ -345,7 +333,7 @@
 				    <a class="nav-link" href="#"><i class="fas fa-cloud-upload-alt"></i></a>
 				</li>
 			</ul>
-			<form class="form-inline ml-auto " action="/action_page.php">
+			<form class="form-inline ml-auto  " action="/action_page.php">
 			    <div class="input-group">
 			      <input type="text" class="form-control" placeholder="Tìm bài hát, video, ca sĩ">
 			      <div class="input-group-prepend">
@@ -367,57 +355,35 @@
 		    			<div class="group-slide">
 		    				<div   class="img-slide">
 		    					<ul id="myList" >
-		    						<li class="slide0 hideShowCase">
+		    						<li class="slide0 ">
 		    							<div>
 			    							<a href="#">
 			    							<img src="images/carousel0.jpg" alt="Song">
 		    								</a>
 		    							</div>
 		    						</li>
-		    						<li class="slide1 ">
-		    							<div>
-			    							<a href="#">
-			    							<img src="images/carousel1.jpg" alt="Song">
-		    								</a>
-		    							</div>	
-		    						</li>
-		    						<li class="slide2 ">
-		    							<div>
-			    							<a href="#">
-			    							<img src="images/carousel2.jpg" alt="Song">
-		    								</a>
-		    							</div>
-		    						</li>
-		    						<li class="slide3 hideShowCase">
-		    							<div>
-			    							<a href="#">
-			    							<img src="images/carousel3.jpg" alt="Song">
-		    								</a>
-		    							</div>
-		    						</li>
-
 		    					</ul>
 		    				</div>
 		    				<div class="img-choose">
-		    					<ul>
-		    						<li class="slide0">
+		    					<ul class="img-choose-ul">
+		    						<li class="slide">
 		    							<a href="#">
-		    								<img src="images/carousel0.jpg" alt="">
+		    								<img src="images/carousel0.jpg" alt="Song">
 		    							</a>
 		    						</li>
-		    						<li class="slide1">
+		    						<li class="slide">
 		    							<a href="#">
-		    								<img src="images/carousel1.jpg" alt="">
+		    								<img src="images/carousel1.jpg" alt="Song">
 		    							</a>
 		    						</li>
-		    						<li class="slide2">
+		    						<li class="slide">
 		    							<a href="#">
-		    								<img src="images/carousel2.jpg" alt="">
+		    								<img src="images/carousel2.jpg" alt="Song">
 		    							</a>
 		    						</li>
-		    						<li class="slide3">
+		    						<li class="slide">
 		    							<a href="#">
-		    								<img src="images/carousel3.jpg" alt="">
+		    								<img src="images/carousel3.jpg" alt="Song">
 		    							</a>
 		    						</li>
 		    					</ul>
@@ -430,6 +396,11 @@
 		    					<a href="#">NGHE GÌ HÔM NAY ></a>
 		    				</h2>
 		    				<ul>
+
+
+
+
+
 		    					<li>
 		    						<div class="box-main">
 		    							<a href="#">
@@ -444,18 +415,20 @@
 		    										<i class="far fa-play-circle"></i>
 		    									</span>
 		    								</div>
-		    								<div class="avatar">
+		    								<span class="avatar">
 		    									<img src="images/item.jpg" alt="">
-		    								</div>
-		    							<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->	
+		    								</span>
 		    							</a>
 		    						</div>
 		    						<div class="infor">
 		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
 		    						</div>
 		    					</li>
+
+
+
+
+
 		    					<li>
 		    						<div class="box-main">
 		    							<a href="#">
@@ -535,7 +508,9 @@
 		    				</ul>
 		    			</div>
 		    		</div>
-		    		<div class="albumHot"></div>
+		    		<div class="albumHot">
+		    			
+		    		</div>
 		    		<div class="mvHot"></div>
 		    		<div class="listSong"></div>
 		    		<div class="listVideo"></div>
@@ -544,7 +519,36 @@
 		    </div>
 
 		    <div class="col-lg-3 right">
-		    	<p>When using the .navbar-brand class on images, Bootstrap 4 will automatically style the image to fit the navbar.</p>
+		    	<div class="nghe-si">
+		    		<ul class="image-nghe-si">
+		    			<li>
+			    			<a href="#">
+			    			<!--<img  class="img-circle" src="images/bich_phuong.jpg" alt="Bích Phương">-->
+			    			</a>
+		    			</li>
+		    		</ul>
+		    		<div>Top Nghệ Sĩ Trending Trong Tuần</div>
+		    		<div class="name-nghe-si"><a href="#">Bích Phương</a></div>
+		    		<div class="trendNgheSi">
+		    			<ul>
+		    				<li><a href="">
+		    					
+		    				</a></li>
+		    				<li><a href="">
+		    					
+		    				</a></li>
+		    				<li><a href="">
+		    					
+		    				</a></li>
+		    				<li><a href="">
+		    					
+		    				</a></li>
+		    				<li><a href="">
+		    					
+		    				</a></li>
+		    			</ul>
+		    		</div>
+		    	</div>
 		    </div>
 		 </div>
   

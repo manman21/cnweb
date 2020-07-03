@@ -48,9 +48,10 @@ a:active {
 	visibility: hidden !important;
     opacity: 0 !important;
 }
+/*
 li.navitem{
 	position: relative;
-}
+}*/
 ul.submenu{
 	position: absolute;
 	background-color: white;
@@ -160,19 +161,29 @@ h2 a{
 	height: 200px;
 	float: left;
 }
+.box-main{
+	
+
+}
 .box-main, .infor{
 	width: 90%;
 }
 .box-main a{
 	width: 100%;
+	color: red;	
+	position: relative;
 }
 .bg_action_infor{
 	width: 100%;
 	height: 100%;
+	padding-right: 0px;
+	z-index: 2;
 }
 .avatar{
 	width: 100%;
 	height: 100%;
+
+	z-index: 1;
 }
 .avatar img{
 	width: 90%;
@@ -184,6 +195,7 @@ h2 a{
 .albumHot{
 	background-color: red;
 }
+
 .mvHot{
 	background-color: yellow;
 }
@@ -193,10 +205,46 @@ h2 a{
 .listVideo{
 	background-color: yellow;
 }
+
+
+
 .right{
-	background-color: black;
+	background-color: white;
 	height: 100%;
+	padding: 20px 0px 0px 0px;
 }
+.nghe-si{
+	width: 100%;
+	height: 350px;
+	background-color: pink;
+}
+.image-nghe-si{
+	width: 100%;
+	height: 250px;
+	background-color: black;
+	padding-left: 0px;
+}
+.image-nghe-si li{
+	width: 100%;
+	height: 250px;
+	background-color: black;
+}
+.image-nghe-si a{
+	width: 100%;
+	height: 250px;
+	background-color: black;
+}
+.image-nghe-si img{
+	width: 100%
+	height:100%;
+	object-fit: contain ;
+}
+
+
+
+
+
+
 .container-fluid{	background-color:green}
 .footer{	background-color:black;}
 
@@ -212,22 +260,23 @@ h2 a{
 
 
 @media only screen and (max-width: 970px) {
-  body {
-    background-color: lightblue;
-  }
-  a.nav-brand img{
-  	padding-left: 0px !important;
-  }
-  
-   ul.display-none {
-		display: none;
+   body {
+     background-color: lightblue;
+   }
+   a.nav-brand img{
+  	 padding-left: 0px !important;
+   }
+    
+	#navmenu{
+
 	}
-	.hideShowCase{
-		visibility: hidden !important;
-	    opacity: 0 !important;
-	}
-	li.navitem{
+	li.nav-item{
+		
 		position: relative;
+		width: 100%;
+	}
+	li.nav-item > a{
+
 	}
 	ul.submenu{
 		position: absolute;
