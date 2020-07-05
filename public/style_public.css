@@ -240,9 +240,102 @@ h2 a{
 	object-fit: contain ;
 }
 
+.goi-y{
+	height: 240px;
+	width: 100%;
+	background-image: url("images/bg_web.png");
+	background-size: cover;
+	border-radius: 10px;
+	color: #fff;
+	text-align: center;
+	padding-top: 30px;
+}
+.text_detail{
+	color: rgba(255, 255, 255, 0.5);
+	width: 80%;
+	margin:auto;
+	margin-top: 20px;
+}
+.content-playlist h2{
+	margin-bottom: 20px;
+}
+.btn_playlist{
+	
+	height: 45px;
+	background-color: #fff;
+	width: 50%;
+	margin:auto;
+	border-radius: 20px;
+	text-align: center;
+	color: #2daaed;
+	padding-top: 10px;
+	margin-top: 20px;
+}	
+
+.chu-de-hot{
+	margin-top: 20px;
+	width: 100%;
+	background-color: #fff;
+	height: 400px;
+
+}
+.chu-de-hot div{
+	margin-bottom: 0px;
+}
+.chu-de-hot a{
+	color: #2daaed;
+}
+.chu-de-hot ul{
+	margin-top: 0px;
+	width: 100%;
+	clear: both;
+	padding-left: 0px;
+}
+.topic-hot {
+	margin-top: 20px;
+	width: 100%;
+	float: left;
+}
+.topic-hot a{
+	width: 100%;
+}
+.topic-hot img{
+	width: 100%;
+	height: 100px;
+}
 
 
-
+.box_chart_music{
+	width: 100%;
+}
+.chart-choose{
+	width: 100%;
+	height: 30px;
+	margin-top: 0px;
+	clear: both;
+	border-radius: 10px;
+	padding-left: 0px;
+	display: block;
+}
+.chart-choose li{
+	width: 33.3%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	background-color: #e5e5e5;
+}
+.chart-choose li:hover{
+	width: 33.3%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	background-color: #e74c3c;
+}
+.list-chart-music{
+	width: 100%;
+	height: 500px;
+	background-color: pink;
+}
 
 
 .container-fluid{	background-color:green}
