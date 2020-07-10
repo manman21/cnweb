@@ -57,6 +57,7 @@ $(document).ready(function(){
  	$(".trendNgheSi ul li").mouseenter(function(){
  		var strX1 = $(this).html();
  		$(".image-nghe-si li" ).html(strX1);
+ 		$(".name-nghe-si a p").text($("img",this).attr("alt"));
  	})
  	var index1 = 1;
    	var strB;
