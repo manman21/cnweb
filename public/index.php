@@ -71,8 +71,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style_public.css">
-  <!--<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=wf_FSqlA4BF1oPN0DwEs9JD4V28nVtRrZ5Bwl88ERdG7PTqVcWdMrPVbu8AyDh0n3AygAzloXOq7NUQ1wTYdoTTh8uEN79E79DNtts1EbN23x70URnpaiaFwHnNGc3vQw9Gz4jGdOAuOTFPRgcNM6gphVKnvlsOtx2dB3kYRgy58yksx2YoeMBgjdFER_jdupe744lWpKNsD5fBSONVSLNykY0e0Ld9goiKcUOuRnnkHM5BmpEYkzvW9n8bBr1kPOR7YZjI2caya2Y4dOls2goqsKLdjMwDpicA4G6jpCKH2qOg7A8XAuSKzYudzInpOlan7zkD6mizBesYdDcPexw" charset="UTF-8"></script>
-  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
