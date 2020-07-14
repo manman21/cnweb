@@ -4,7 +4,7 @@
 	//echo "OK"; exit();
 	//1.Lấy thông tin bản ghi top > 0 limit 1
 	//1.1 Tạo SQL
-	$topSql = "SELECT * FROM singer where id = 2 ";
+	$topSql = "SELECT * FROM nghesi where id = 2 ";
 	//1.1 Kiểm tra sql đúng không?
 	//echo $topSql; exit();
 	//1.2 Thự thi
@@ -428,7 +428,7 @@
 		    					<ul class="img-choose-ul">
 		    						<li class="slide">
 		    							<a href="#">
-		    								<img src="images/carousel0.jpg" alt="Song">
+		    								<img src="images\baihat\iknowyouknow_subinhoangson.jpg" alt="Song">
 		    							</a>
 		    						</li>
 		    						<li class="slide">
@@ -1828,7 +1828,7 @@
 		    		<ul class="image-nghe-si">
 		    			<li>
 			    			<a href="#">
-			    			<img src="<?php echo $data["img"] ; ?>alt="Bích Phương">
+			    			<img src="<?php echo $data["img"] ; ?> alt="Bích Phương">
 			    			</a>
 		    			</li>
 		    		</ul>
@@ -1841,7 +1841,7 @@
 		    					<img src="images/bich_phuong.jpg" alt="Bích Phương">
 		    				</a></li>
 		    				<li><a href="javascript:">
-		    					<img src="<?php echo $data["img"]; ?>" alt="BlackPink">
+		    					<img src="<?php echo $data["img"]; ?>" alt="<?php echo $data["name"] ; ?>">
 		    				</a></li>
 		    				<li><a href="javascript:">
 		    					<img src="images/hoai_lam.jpg" alt="Hoài Lâm">
