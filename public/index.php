@@ -60,6 +60,15 @@
 		$homeRight[] = $dat;
 	}
 	//print_r($dataLeft); exit();
+	$coursel = "SELECT * FROM baihat limit 4";
+	$datas1 = select_list($coursel);
+
+	$coursel2 = "SELECT * FROM nghesi limit 5";
+	$datas2 = select_list($coursel2);
+	//print_r($datas2[0]["img"]);exit();
+	$coursel3 = "SELECT * FROM baihat limit 5";
+	$datas3 = select_list($coursel3);
+	//print_r($datas3[0]["img-square"]);exit();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -419,33 +428,23 @@
 		    					<ul id="myList" >
 		    						<li class="slide0 ">
 			    						<a href="#">
-			    							<img src="images/carousel0.jpg" alt="Song">
+			    							<img src="<?php print_r($datas1[0]["img"])?>" alt="Song">
 		    							</a>
 		    						</li>
 		    					</ul>
 		    				</div>
 		    				<div class="img-choose">
 		    					<ul class="img-choose-ul">
-		    						<li class="slide">
+		    						<?php foreach ($datas1 as $item) {?>
+									<li class="slide">
 		    							<a href="#">
-		    								<img src="images\baihat\iknowyouknow_subinhoangson.jpg" alt="Song">
+		    								<img src="<?php print_r($item["img"])?>" alt="Song">
 		    							</a>
 		    						</li>
-		    						<li class="slide">
-		    							<a href="#">
-		    								<img src="images/carousel1.jpg" alt="Song">
-		    							</a>
-		    						</li>
-		    						<li class="slide">
-		    							<a href="#">
-		    								<img src="images/carousel2.jpg" alt="Song">
-		    							</a>
-		    						</li>
-		    						<li class="slide">
-		    							<a href="#">
-		    								<img src="images/carousel3.jpg" alt="Song">
-		    							</a>
-		    						</li>
+									<?php } ?>
+
+
+		    						
 		    					</ul>
 		    				</div>
 		    			</div>
@@ -456,8 +455,9 @@
 		    					<a href="#">NGHE GÌ HÔM NAY ></a>
 		    				</h2>
 		    				<ul>
+		    					<?php foreach ($datas3 as $item) {?>
 		    					<li>
-		    						<div class="box-main">
+		    						<div class="box-main" style="background-image: url(<?php print_r($item["img-square"]);?>) ">
 		    							<a href="#">
 		    								<div class="bg_action_info">
 		    									<span class="view_listen">
@@ -476,105 +476,10 @@
 		    							</a>
 		    						</div>
 		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<a href="#"><?php echo $item["name"]?></a>
 		    						</div>
 		    					</li>
-
-
-
-								<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    						</div>
-		    					</li>
-
+								<?php } ?>
 		    				</ul>
 		    			</div>
 		    		</div>
@@ -599,9 +504,11 @@
 		    										<i class="far fa-play-circle"></i>
 		    									</span>-->
 		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
+		    								<span class="avatar" style="height: 150px;
+		    								width: 150px;">
+		    									<img src="images/item.jpg" alt=""style="height: 150px;top:0px;
+		    								width: 150px;">
+		    								</span>
 		    							</a>
 		    						</div>
 		    						<div class="infor">
@@ -1828,30 +1735,20 @@
 		    		<ul class="image-nghe-si">
 		    			<li>
 			    			<a href="#">
-			    			<img src="<?php echo $data["img"] ; ?> alt="Bích Phương">
+			    			<img src="<?php print_r($datas2[4]["img"]); ?>" alt="Bích Phương">
 			    			</a>
 		    			</li>
 		    		</ul>
 		    		<div style="text-align: center; color: rgba(0,0,0,.5); font-size: 14px;">Top Nghệ Sĩ Trending Trong Tuần</div>
 		    		<div class="name-nghe-si"><a href="#">
-		    			<p>Bích Phương</p></a></div>
+		    			<p><?php print_r($datas2[0]["name"]); ?></p></a></div>
 		    		<div class="trendNgheSi">
 		    			<ul>
-		    				<li ><a href="javascript:">
-		    					<img src="images/bich_phuong.jpg" alt="Bích Phương">
+		    				<?php foreach ($datas2 as $item) {?>
+								<li ><a href="javascript:">
+		    					<img src="<?php print_r($item["img"]); ?>" alt="<?php print_r($item["name"]); ?>">
 		    				</a></li>
-		    				<li><a href="javascript:">
-		    					<img src="<?php echo $data["img"]; ?>" alt="<?php echo $data["name"] ; ?>">
-		    				</a></li>
-		    				<li><a href="javascript:">
-		    					<img src="images/hoai_lam.jpg" alt="Hoài Lâm">
-		    				</a></li>
-		    				<li><a href="javascript:">
-		    					<img src="images/trung_quan_idol.jpg" alt="Trung Quân Idol">
-		    				</a></li>
-		    				<li><a href="javascript:">
-		    					<img src="images/k_icm.jpg" alt="K-ICM">
-		    				</a></li>
+							<?php } ?>
 		    			</ul>
 		    		</div>
 		    	</div>
@@ -2474,6 +2371,15 @@
 						<div><a href="">Xem tất cả TOP 100</a></div>
 					</div>
 				</div>
+				
+				<div class="play-music  hideShowCase" style="">
+					<div>
+						<audio controls autoplay>
+						  <source src="audio/la_la_land_soundtrack_celesta_another_day_of_sun_instrumental.mp3" type="audio/mpeg">
+						  Your browser does not support the audio tag.
+						</audio>
+					</div>
+				</div>
 		    </div>
 		</div>
 
@@ -2481,9 +2387,9 @@
 	 </div>
   
 
-
-
-
+	
+	
+	
 	<div class="footer">
 	  <div class="container-footer">
 	  	<ul>

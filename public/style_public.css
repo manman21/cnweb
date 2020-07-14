@@ -165,7 +165,7 @@ h2 a{
 }
 .box-main{	
 	height: 150px;
-	background-image: url("images/item.jpg");
+	background-image: url("images/baihat/chingaemnang_bichphuong_icon.jpg");
 	background-size:cover ;
 	display: block;
 }
@@ -354,6 +354,7 @@ li.mvLi .box-main, li.mvLi .infor{
 	background-color: white;
 	height: 100%;
 	padding: 20px 0px 0px 0px;
+	position: relative;
 }
 .nghe-si{
 	width: 100%;
@@ -934,4 +935,14 @@ li.mvLi .box-main, li.mvLi .infor{
 		width:100%;
 		margin: 20px 0px 0px 0px;
 	}
+}
+
+.play-music{
+	margin-bottom: 0px;
+	width: 300px;
+	height: 200px;
+	background-color: black;
+	position: fixed;
+	bottom: 1px;
+	z-index: 1000;
 }
