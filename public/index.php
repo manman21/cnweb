@@ -61,14 +61,40 @@
 	}
 	//print_r($dataLeft); exit();
 	$coursel = "SELECT * FROM baihat limit 4";
-	$datas1 = select_list($coursel);
+	$slideSong = select_list($coursel);
 
 	$coursel2 = "SELECT * FROM nghesi limit 5";
-	$datas2 = select_list($coursel2);
-	//print_r($datas2[0]["img"]);exit();
+	$ngheSi = select_list($coursel2);
+	//print_r($ngheSi[0]["img"]);exit();
+
+
 	$coursel3 = "SELECT * FROM baihat limit 5";
-	$datas3 = select_list($coursel3);
-	//print_r($datas3[0]["img-square"]);exit();
+	$ngheGiHomNay = select_list($coursel3);
+	//print_r($ngheGiHomNay[0]["img-square"]);exit();
+
+
+
+	$slAlbumhot = "SELECT * FROM baihat ORDER BY timecreate DESC limit 10";
+	//echo $slAlbumhot ;exit();
+	$albumHot = select_list($slAlbumhot);
+	//print_r($albumHot);exit();
+
+	$slAllnghesi = "SELECT id,name FROM nghesi ";
+	//echo $slAllnghesi ;exit();
+	$allNghesi = select_list($slAllnghesi);
+	//print_r($allNghesi);exit();
+
+	$nghesi0 = array();
+
+	$slbaihat = "SELECT * FROM baihat limit 12";
+	$baihat = select_list($slbaihat);
+	//print_r($baihat);exit();
+
+	$slbxhBaihat = "SELECT * FROM baihat ORDER BY timecreate DESC limit 10";
+	$bxhBaihat = select_list($slbxhBaihat);
+	//print_r($bxhBaihat);exit();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -428,14 +454,14 @@
 		    					<ul id="myList" >
 		    						<li class="slide0 ">
 			    						<a href="#">
-			    							<img src="<?php print_r($datas1[0]["img"])?>" alt="Song">
+			    							<img src="<?php print_r($slideSong[0]["img"])?>" alt="Song">
 		    							</a>
 		    						</li>
 		    					</ul>
 		    				</div>
 		    				<div class="img-choose">
 		    					<ul class="img-choose-ul">
-		    						<?php foreach ($datas1 as $item) {?>
+		    						<?php foreach ($slideSong as $item) {?>
 									<li class="slide">
 		    							<a href="#">
 		    								<img src="<?php print_r($item["img"])?>" alt="Song">
@@ -455,24 +481,23 @@
 		    					<a href="#">NGHE GÌ HÔM NAY ></a>
 		    				</h2>
 		    				<ul>
-		    					<?php foreach ($datas3 as $item) {?>
+		    					<?php foreach ($ngheGiHomNay as $item) {?>
 		    					<li>
-		    						<div class="box-main" style="background-image: url(<?php print_r($item["img-square"]);?>) ">
+		    						<div class="box-main" >
 		    							<a href="#">
-		    								<div class="bg_action_info">
+		    								<div class="bg_action_info" style="position: absolute;">
 		    									<span class="view_listen">
-		    										<span class="icon_listen">
+		    										<span class="icon_listen"  >
 		    											<i class="fas fa-headphones"></i>
 		    										</span>
-		    										<span class="viewed_number">52.990</span>
+		    										<span class="viewed_number"><?php echo ($item["luotnghe"]);?></span>
 		    									</span>
-		    									<!-- <span class="icon_play">
+		    									<span class="icon_play hideShowCase">
 		    										<i class="far fa-play-circle fa-3x"></i>
-		    									</span> -->
+		    									</span>
 		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
+		    								<img src="<?php echo ($item["img-square"]);?>" alt="">
+		    								
 		    							</a>
 		    						</div>
 		    						<div class="infor">
@@ -490,279 +515,45 @@
 		    					<a href="#">MỚI PHÁT HÀNH ></a>
 		    				</h2>
 		    				<ul>
+		    					<?php foreach ($albumHot as $item) {?>
+					
+				
 		    					<li>
-		    						<div class="box-main">
+		    						<div class="box-main" >
 		    							<a href="#">
-		    								<div class="bg_action_info">
+		    								<div class="bg_action_info" style="position: absolute;">
 		    									<span class="view_listen">
-		    										<span class="icon_listen">
+		    										<span class="icon_listen"  >
 		    											<i class="fas fa-headphones"></i>
 		    										</span>
-		    										<span class="viewed_number">52.990</span>
+		    										<span class="viewed_number"><?php echo $item["luotnghe"];?></span>
 		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
+		    									<span class="icon_play hideShowCase">
+		    										<i class="far fa-play-circle fa-3x"></i>
+		    									</span>
 		    								</div>
-		    								<span class="avatar" style="height: 150px;
-		    								width: 150px;">
-		    									<img src="images/item.jpg" alt=""style="height: 150px;top:0px;
-		    								width: 150px;">
-		    								</span>
+		    								<img src="<?php echo $item["img-square"];?>" alt="">
+		    								
 		    							</a>
 		    						</div>
 		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc </a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc </a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
-		    					<li>
-		    						<div class="box-main">
-		    							<a href="#">
-		    								<div class="bg_action_info">
-		    									<span class="view_listen">
-		    										<span class="icon_listen">
-		    											<i class="fas fa-headphones"></i>
-		    										</span>
-		    										<span class="viewed_number">52.990</span>
-		    									</span>
-		    									<!--<span class="icon_play">
-		    										<i class="far fa-play-circle"></i>
-		    									</span>-->
-		    								</div>
-		    								<!--<span class="avatar">
-		    									<img src="images/item.jpg" alt="">
-		    								</span>-->
-		    							</a>
-		    						</div>
-		    						<div class="infor">
-		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
-		    							<h4>
-		    								<a href="#">K-ICM</a>,
-		    								<a href="#">Xesi</a>
-		    							</h4>
-		    						</div>
-		    					</li>
+		    							<a href="#"><?php echo $item["name"];?></a>
+		    							<h4><?php 
+		    								$nghesi0 = explode( "," , $item["idNghesi"]);
+											    foreach($nghesi0 as $y ) {?>
 
+											    	<?php foreach($allNghesi as $z ){?>
+											  			<?php if( $z["id"] == $y ) {?>
+											  				<a href="#"><?php echo $z["name"]?></a>, 
+											  			<?php } ?>
+											  		<?php } ?>
+
+												<?php } ?>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<?php } ?>
+		    					
 		    				</ul>
 		    			</div>
 		    		</div>
@@ -1053,223 +844,27 @@
 		    				<h2>
 		    					<a href="#">BÀI HÁT ></a>
 		    				</h2>
-		    				<ul>	
-		    					<li>
-		    						<div>
+		    				<ul>
+		    					<?php foreach ($baihat as $item) {?>
+									<li>
+		    						<div class="baihat">
 										<a class="thumbnail_baihat" href="#">
 											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
+											<img src="<?php echo $item["img-square"]?>" alt="">
 										</a>
 										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
+											<h3><a href=""><?php echo $item["name"]?></a></h3>
 											<h4><a href="">BlackPink</a>		</h4>
 										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+										<span class="view_listen" style="">
+		    								<span class="icon_listen"> 			
+		    									<i class="fas fa-headphones"></i>
 		    								</span>
-		    								<span class="viewed_number">52.990</span>
+		    								<span class="viewed_number"><?php echo $item["luotnghe"]?></span>
 		    							</span>
 		    						</div>
 								</li>
-		    					<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
-								<li>
-		    						<div>
-										<a class="thumbnail_baihat" href="#">
-											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="images/isaac.jpg" alt="">
-										</a>
-										<div class="infor_data_mv">
-											<h3><a href="">How You Like That</a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
-										</div>
-										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
-										">
-		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
-		    								</span>
-		    								<span class="viewed_number">52.990</span>
-		    							</span>
-		    						</div>
-								</li>
+								<?php } ?>	
 		    				</ul>
 		    			</div>
 					</div>
@@ -1735,16 +1330,16 @@
 		    		<ul class="image-nghe-si">
 		    			<li>
 			    			<a href="#">
-			    			<img src="<?php print_r($datas2[4]["img"]); ?>" alt="Bích Phương">
+			    			<img src="<?php print_r($ngheSi[4]["img"]); ?>" alt="Bích Phương">
 			    			</a>
 		    			</li>
 		    		</ul>
 		    		<div style="text-align: center; color: rgba(0,0,0,.5); font-size: 14px;">Top Nghệ Sĩ Trending Trong Tuần</div>
 		    		<div class="name-nghe-si"><a href="#">
-		    			<p><?php print_r($datas2[0]["name"]); ?></p></a></div>
+		    			<p><?php print_r($ngheSi[0]["name"]); ?></p></a></div>
 		    		<div class="trendNgheSi">
 		    			<ul>
-		    				<?php foreach ($datas2 as $item) {?>
+		    				<?php foreach ($ngheSi as $item) {?>
 								<li ><a href="javascript:">
 		    					<img src="<?php print_r($item["img"]); ?>" alt="<?php print_r($item["name"]); ?>">
 		    				</a></li>
@@ -1760,7 +1355,7 @@
 	                        <h2 style="font-size: 16px; color: #fff">GỢI Ý DÀNH CHO BẠN</h2>        
 	                        <p class="text_detail" style="font-size: 14px;">Thưởng thức những ca khúc phù hợp nhất với bạn</p>
 	                            <p class="btn_playlist">
-	                                <span class="ic_play_normal"><i class="fas fa-play" style="color: #2daaed"></i></span>
+	                                <span class="ic_play_normal"><i class="fas fa-play" style="color: #2daaed;text-shadow: none;"></i></span>
 	                                <span class="btn_text" style="color: #2daaed">Nghe bài hát</span>
 	                            </p>
 	                    	</div>
@@ -1790,8 +1385,7 @@
 				</div>
 				<div class="box_chart_music">
 					<h3 >
-						<a href="#" style="color: #2daaed;">BXH BÀI HÁT </a>
-						<a href="#" style="color: gray;"><i class="far fa-play-circle"></i></a>
+						<a href="#" style="color: #2daaed;">BXH BÀI HÁT <i class="far fa-play-circle" style="text-shadow: none;color: gray;"></i></a>
 					</h3>
 					<ul class="chart-choose">
 						<li style="
@@ -1805,98 +1399,60 @@
 								<div class="infor_data">
 									<a href="">
 										<span>1</span>
-										<img src="images/viet_nam.jpg" alt="">
+										<img src="<?php echo $bxhBaihat[0]["img-square"]?>" alt="">
 									</a>
 									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a></h4>
+										<h3><a href=""><?php echo $bxhBaihat[0]["name"]?></a></h3>
+										<h4><?php 
+		    								$nghesi0 = explode( "," , $bxhBaihat[0]["idNghesi"]);
+											    foreach($nghesi0 as $y ) {?>
+
+											    	<?php foreach($allNghesi as $z ){?>
+											  			<?php if( $z["id"] == $y ) {?>
+											  				<a href="#"><?php echo $z["name"]?></a>, 
+											  			<?php } ?>
+											  		<?php } ?>
+
+												<?php } ?>
+											</h4>
 									</div>
 								</div>
 							</li>
-							<li class="two">
-								<div>
-									<span style="color: #1abc9c">2</span>
-									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a>,
 
-											<a href="">Tuấn Mạnh</a>
+							<?php for ($index = 1; $index < 10; $index++) {?>
+								<li class="two">
+								<div>
+									<?php if($index+1 ==2 ) {?>
+										<span style="color: #1abc9c">
+											<?php echo $index+1?>
+										</span>
+									<?php }elseif ($index+1 ==3 ) {?>
+										<span style="color: #f39c12">
+											<?php echo $index+1?>
+										</span>
+									<?php } else {?>
+										<span style="color: #7a7a7a;">
+											<?php echo $index+1?>
+										</span>
+									<?php }?>
+									<div class="infor_data_song">
+										<h3><a href=""><?php echo $bxhBaihat[$index]["name"]?></a></h3>
+										<h4><?php 
+		    								$nghesi0 = explode( "," , $bxhBaihat[$index]["idNghesi"]);
+											    foreach($nghesi0 as $y ) {?>
+
+											    	<?php foreach($allNghesi as $z ){?>
+											  			<?php if( $z["id"] == $y ) {?>
+											  				<a href="#"><?php echo $z["name"]?></a>, 
+											  			<?php } ?>
+											  		<?php } ?>
+
+												<?php } ?>
 										</h4>
 									</div>
 								</div>
 							</li>
-							<li class="two">
-								<div>
-									<span style="color: #f39c12">3</span>
-									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a></h4>
-									</div>
-								</div>
-							</li>
-							<li class="two">
-								<div>
-									<span >4</span>
-									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a></h4>
-									</div>
-								</div>
-							</li>
-							<li class="two">
-								<div>
-									<span >5</span>
-									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a></h4>
-									</div>
-								</div>
-							</li>
-							<li class="two">
-								<div>
-									<span >6</span>
-									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a></h4>
-									</div>
-								</div>
-							</li>
-							<li class="two">
-								<div>
-									<span >7</span>
-									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a></h4>
-									</div>
-								</div>
-							</li>
-							<li class="two">
-								<div>
-									<span >8</span>
-									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a></h4>
-									</div>
-								</div>
-							</li>
-							<li class="two">
-								<div>
-									<span >9</span>
-									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a></h4>
-									</div>
-								</div>
-							</li>
-							<li class="two">
-								<div>
-									<span >10</span>
-									<div class="infor_data_song">
-										<h3><a href="">How You Like That</a></h3>
-										<h4><a href="">BlackPink</a></h4>
-									</div>
-								</div>
-							</li>
+							<?php }?>
 						</ul>
 
 
@@ -2101,8 +1657,7 @@
 				</div>
 				<div class="box_chart_mv">
 					<h3 >
-						<a href="#" style="color: #2daaed;">BXH MV </a>
-						<a href="#" style="color: gray;"><i class="far fa-play-circle"></i></a>
+						<a href="#" style="color: #2daaed;">BXH MV <i class="far fa-play-circle" style="color: gray;text-shadow: none;"></i></a>
 					</h3>
 					<ul class="chart-choose">
 						<li style="
@@ -2128,7 +1683,7 @@
 							<li>
 								<div>
 									<a class="thumbnail_small" href="#">
-										<span style="color: #1abc9c">2</span>
+										<span style="color: #1abc9c;">2</span>
 										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
 										<img src="images/isaac.jpg" alt="">
 									</a>

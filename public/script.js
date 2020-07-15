@@ -21,6 +21,12 @@ $(document).ready(function(){
     	$("#navmenu",this).toggleClass("display-none")
   	});
 
+  	$(".box-main").mouseenter(function(){
+  		$(".icon_play",this).removeClass("hideShowCase")
+  	})
+  	$(".box-main").mouseleave(function(){
+  		$(".icon_play",this).addClass("hideShowCase")
+  	})
 
 
 

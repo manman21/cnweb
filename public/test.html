@@ -1,0 +1,2433 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NhacCuaTui- Nghe nhac</title>
+  <link rel="icon" type="image/png" href="images/logo1.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style_public.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+	<script src="script.js"></script>
+ 
+</head>
+<body>
+	<div class="container ">
+		<nav class="navbar navbar-expand-sm bg-white  fixed-top clear_both">
+		  <!-- Brand/logo -->
+			<a class="navbar-brand nav-brand" href="#" style="margin-left: 40px !important">
+			    <img src="images/ic_bigo_talent.png" alt="logo" style="max-width: 100%;height: 30px">
+			</a>
+			  <!-- Links -->
+			<ul id="navmenu" class="navbar-nav ">
+			    <li class="nav-item">
+			      <a class="nav-link" href="#">Bài Hát</a>
+			      <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#"><b>Việt Nam</b></a></li>
+			      				<li><a href="#">Nhạc Trẻ</a></li>
+			      				<li><a href="#">Nhạc Trữ Tình</a></li>
+			      				<li><a href="#">Remix Việt</a></li>
+			      				<li><a href="#">Rap Việt</a></li>
+			      				<li><a href="#">Tiền Chiến</a></li>
+			      				<li><a href="#">Nhạc Trịnh</a></li>
+			      				<li><a href="#">Rock Việt</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Âu Mỹ</b></a></li>
+			      				<li><a href="#">Top</a></li>
+			      				<li><a href="#">Rock</a></li>
+			      				<li><a href="#">Electronica</a>/Dance</li>
+			      				<li><a href="#">R&B/Rap</a></li>
+			      				<li><a href="#">Blues/Jazz</a></li>
+			      				<li><a href="#">Country</a></li>
+			      				<li><a href="#">Latin</a></li>
+			      				<li><a href="#">Indie</a></li>
+			      				<li><a href="#">Khác</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Châu Á</b></a></li>
+			      				<li><a href="#">Nhạc Hoa</a></li>
+			      				<li><a href="#">Nhạc Hàn</a></li>
+			      				<li><a href="#">Nhạc Thái</a></li>
+			      				<li><a href="#">Nhạc Nhật</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Khác</b></a></li>
+			      				<li><a href="#">Thiếu Nhi</a></li>
+			      				<li><a href="#">Không Lời</a></li>
+			      				<li><a href="#">Beat</a></li>
+			      				<li><a href="#">Khác</a></li>
+			      				<li><a href="#">Tui Hát</a></li>
+			      			</ul>
+			      		</li>
+			      </ul>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" href="#">Playlist</a>
+			      <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#"><b>Việt Nam</b></a></li>
+			      				<li><a href="#">Nhạc Trẻ</a></li>
+			      				<li><a href="#">Nhạc Trữ Tình</a></li>
+			      				<li><a href="#">Remix Việt</a></li>
+			      				<li><a href="#">Rap Việt</a></li>
+			      				<li><a href="#">Tiền Chiến</a></li>
+			      				<li><a href="#">Nhạc Trịnh</a></li>
+			      				<li><a href="#">Rock Việt</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Âu Mỹ</b></a></li>
+			      				<li><a href="#">Top</a></li>
+			      				<li><a href="#">Rock</a></li>
+			      				<li><a href="#">Electronica</a>/Dance</li>
+			      				<li><a href="#">R&B/Rap</a></li>
+			      				<li><a href="#">Blues/Jazz</a></li>
+			      				<li><a href="#">Country</a></li>
+			      				<li><a href="#">Latin</a></li>
+			      				<li><a href="#">Indie</a></li>
+			      				<li><a href="#">Khác</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Châu Á</b></a></li>
+			      				<li><a href="#">Nhạc Hoa</a></li>
+			      				<li><a href="#">Nhạc Hàn</a></li>
+			      				<li><a href="#">Nhạc Thái</a></li>
+			      				<li><a href="#">Nhạc Nhật</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Khác</b></a></li>
+			      				<li><a href="#">Thiếu Nhi</a></li>
+			      				<li><a href="#">Không Lời</a></li>
+			      				<li><a href="#">Beat</a></li>
+			      				<li><a href="#">Khác</a></li>
+			      				<li><a href="#">Tui Hát</a></li>
+			      			</ul>
+			      		</li>
+			      </ul>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" href="#">Tuyển Tập</a>
+			      <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#"><b>Thể Loại</b></a></li>
+			      				<li><a href="#">Nhạc Trẻ</a></li>
+			      				<li><a href="#">Nhạc Trữ Tình</a></li>
+			      				<li><a href="#">Nhạc Hàn</a></li>
+			      				<li><a href="#">Nhạc Hoa</a></li>
+			      				<li><a href="#">SoundTrack</a></li>
+			      				<li><a href="#">Không Lời</a></li>
+			      				
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Tâm Trạng</b></a></li>
+			      				<li><a href="#">Buồn</a></li>
+			      				<li><a href="#">Hưng Phần</a></li>
+			      				<li><a href="#">Thất Tình</a></li>
+			      				<li><a href="#">Nhạy Cảm</a></li>
+			      				<li><a href="#">Nhẹ Nhàng</a></li>
+			      				<li><a href="#">Nhớ Nhung</a></li>
+			      				<li><a href="#">Vui Vẻ</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Khung Cảnh</b></a></li>
+			      				<li><a href="#">Cafe</a></li>
+			      				<li><a href="#">Bar - Club</a></li>
+			      				<li><a href="#">Phòng Trà</a></li>
+			      				<li><a href="#">Tắm - Bơi Lội</a></li>
+			      				<li><a href="#">Gym</a></li>
+			      				<li><a href="#">Lãng Mạn</a></li>
+			      				<li><a href="#">Mưa</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Chủ Đề</b></a></li>
+			      				<li><a href="#">Tình Yêu</a></li>
+			      				<li><a href="#">Top 100</a></li>
+			      				<li><a href="#">Weekend</a></li>
+			      				<li><a href="#">Chill Out</a></li>
+			      				<li><a href="#">Bất Hủ</a></li>
+			      				<li><a href="#">Song Ca</a></li>
+			      				<li><a href="#">Mashup</a></li>
+			      			</ul>
+			      		</li>
+			      </ul>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" href="#">Video</a>
+			      <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#"><b>Việt Nam</b></a></li>
+			      				<li><a href="#">Nhạc Trẻ</a></li>
+			      				<li><a href="#">Nhạc Trữ Tình</a></li>
+			      				<li><a href="#">Cách Mạng</a></li>
+			      				<li><a href="#">Rap Việt</a></li>
+			      				<li><a href="#">Rock Việt</a></li>
+			      				
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Âu Mỹ</b></a></li>
+			      				<li><a href="#">Top</a></li>
+			      				<li><a href="#">Rock</a></li>
+			      				<li><a href="#">Electronica</a>/Dance</li>
+			      				<li><a href="#">R&B/Rap</a></li>
+			      				<li><a href="#">Blues/Jazz</a></li>
+			      				<li><a href="#">Country</a></li>
+			      				<li><a href="#">Latin</a></li>
+			      				<li><a href="#">Indie</a></li>
+			      				<li><a href="#">Khác</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Châu Á</b></a></li>
+			      				<li><a href="#">Nhạc Hoa</a></li>
+			      				<li><a href="#">Nhạc Hàn</a></li>
+			      				<li><a href="#">Nhạc Thái</a></li>
+			      				<li><a href="#">Nhạc Nhật</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>KARAOKE</b></a></li>
+			      				<li><a href="#">Nhạc Trẻ</a></li>
+			      				<li><a href="#">Nhạc Trữ Tình</a></li>
+			      				<li><a href="#">Cách Mạng</a></li>
+			      				<li><a href="#">Remix Việt</a></li>
+			      				<li><a href="#">Thiếu Nhi</a></li>
+			      				<li><a href="#">Âu Mỹ</a></li>
+			      				<li><a href="#">Khác</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#"><b>Khác</b></a></li>
+			      				<li><a href="#">Thiếu Nhi</a></li>
+			      				<li><a href="#">Clip Vui</a></li>
+			      				<li><a href="#">Hài Kịch</a></li>
+			      				<li><a href="#">Giải Trí Khác</a></li>
+			      				<li><a href="#">Thể Loại Khác</a></li>
+			      				<li><a href="#">Phim Việt Nam</a></li>
+			      			</ul>
+			      		</li>
+			      </ul>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" href="#">BXH</a>
+			      <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#">Việt Nam</a></li>
+			      				<li><a href="#">Âu Mỹ</a></li>
+			      				<li><a href="#">Hàn Quốc</a></li>
+			      			</ul>
+			      		</li>
+			      </ul>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" href="#">Chủ Đề</a>
+			      <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#">Hôm Nay Nghe Gì</a></li>
+			      				<li><a href="#">Tình Yêu</a></li>
+			      				<li><a href="#">Bất Hủ Âu Mỹ</a></li>
+			      				<li><a href="#">Indie</a></li>
+			      				<li><a href="#">Cover & Mashup</a></li>
+			      				<li><a href="#">Wedding</a></li>
+			      				<li><a href="#">Nhạc Thiếu Nhi</a></li>
+			      				
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#">Chill Out</a></li>
+			      				<li><a href="#">Hot</a></li>
+			      				<li><a href="#">EDM</a></li>
+			      				<li><a href="#">Nhạc Hoa Lời Việt</a></li>
+			      				<li><a href="#">Coffe Time</a></li>
+			      				<li><a href="#">Nhạc Phim</a></li>
+			      				<li><a href="#">Nhạc Buồn</a></li>
+			      			</ul>
+			      			<ul>
+			      				<li><a href="#">Accoustic</a></li>
+			      				<li><a href="#">Hải Ngoại</a></li>
+			      				<li><a href="#">Nhạc Bất Hủ Việt</a></li>
+			      				<li><a href="#">Remix Việt</a></li>
+			      				<li><a href="#">Gym</a></li>
+			      				<li><a href="#">Bolero</a></li>
+			      			</ul>
+			      		</li>
+			      </ul>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" href="#">Top 100</a>
+			      <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#">Việt Nam</a></li>
+			      				<li><a href="#">Âu Mỹ</a></li>
+			      				<li><a href="#">Châu Á</a></li>
+			      				<li><a href="#">Không Lời</a></li>
+			      			</ul>
+			      		</li>
+			      </ul>
+			    </li>
+				
+
+			    <li class="nav-item">
+			      <a class="nav-link" href="#"><i class="fas fa-ellipsis-h"></i></a>
+			      <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#">Nghệ Sĩ</a></li>
+			      				<li><a href="#">Khám Phá</a></li>
+			      				<li><a href="#">Sự Kiện - TV</a></li>
+			      				<li><a href="#">Tin Tức Âm Nhạc</a></li>
+			      			</ul>
+			      		</li>
+			      </ul>
+			    </li>
+			</ul>
+			
+
+			
+			<span id="sidenavid"class="hideShowCase"><i class="fas fa-list-ul"></i></span>
+
+
+			<ul class="navbar-nav ml-auto nav-icon">
+				<li class="nav-item">
+				    <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+				    <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#">Đăng Nhập</a></li>
+			      				<hr>
+			      				<li><a href="#">Đăng Kí</a></li>
+			      			</ul>
+			      		</li>
+			      	</ul>
+				</li>
+				<li class="nav-item">
+				    <a class="nav-link" href="#" style="color: #fab905 !important"><i class="fas fa-crown"></i></a>
+				    <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#">Giới Thiệu</a></li>
+			      				<hr>
+			      				<li><a href="#">Mua NhacCuaTui VIP</a></li>
+			      				<hr>
+			      				<li><a href="#">Thông Tin Thanh Toán</a></li>
+			      				<hr>
+			      				<li><a href="#">Tin Tức VIP</a></li>
+			      			</ul>
+			      		</li>
+			      	</ul>
+				</li>
+				<li class="nav-item">
+				    <a class="nav-link" href="#"><i class="fas fa-headphones"></i></a>
+				</li>
+				<li class="nav-item">
+				    <a class="nav-link" href="#"><i class="fas fa-cloud-upload-alt"></i></a>
+				</li>
+			</ul>
+			<form class="form-inline ml-auto  " action="/action_page.php">
+			    <div class="input-group">
+			      <input type="text" class="form-control" placeholder="Tìm bài hát, video, ca sĩ">
+			      <div class="input-group-prepend">
+			        <span class="input-group-text"><i class="fas fa-search"></i></span>
+			      </div>
+			    </div>
+			</form>
+		</nav>
+		
+	</div>
+
+	
+
+	<div class="container-fluid margin_top">
+		<div class="row">
+		    <div class="col-lg-9 left">
+		    	<div class="content-left">
+		    		<div class="slide-default">
+		    			<div class="group-slide">
+		    				<div class="img-slide">
+		    					<ul id="myList" >
+		    						<li class="slide0 ">
+			    						<a href="#">
+			    							<img src="images/carousel0.jpg" alt="Song">
+		    							</a>
+		    						</li>
+		    					</ul>
+		    				</div>
+		    				<div class="img-choose">
+		    					<ul class="img-choose-ul">
+		    						<li class="slide">
+		    							<a href="#">
+		    								<img src="images/carousel0.jpg" alt="Song">
+		    							</a>
+		    						</li>
+		    						<li class="slide">
+		    							<a href="#">
+		    								<img src="images/carousel1.jpg" alt="Song">
+		    							</a>
+		    						</li>
+		    						<li class="slide">
+		    							<a href="#">
+		    								<img src="images/carousel2.jpg" alt="Song">
+		    							</a>
+		    						</li>
+		    						<li class="slide">
+		    							<a href="#">
+		    								<img src="images/carousel3.jpg" alt="Song">
+		    							</a>
+		    						</li>
+		    					</ul>
+		    				</div>
+		    			</div>
+		    		</div>
+		    		<div class="ngheGiHomNay">
+		    			<div>
+		    				<h2>
+		    					<a href="#">NGHE GÌ HÔM NAY ></a>
+		    				</h2>
+		    				<ul>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!-- <span class="icon_play">
+		    										<i class="far fa-play-circle fa-3x"></i>
+		    									</span> -->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    						</div>
+		    					</li>
+
+
+
+								<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    						</div>
+		    					</li>
+
+		    				</ul>
+		    			</div>
+		    		</div>
+		    		<div class="albumHot">
+		    			<div>
+		    				<h2>
+		    					<a href="#">MỚI PHÁT HÀNH ></a>
+		    				</h2>
+		    				<ul>
+		    					<li>
+		    						<div class="box-main" >
+		    							<a href="#">
+		    								<div class="bg_action_info" style="position: absolute;">
+		    									<span class="view_listen">
+		    										<span class="icon_listen"  >
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<span class="icon_play " style="">
+		    										<i class="far fa-play-circle fa-3x"></i>
+		    									</span>
+		    								</div>
+		    								<img src="images/item.jpg" alt="" >
+		    								
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main" >
+		    							<a href="#">
+		    								<div class="bg_action_info" style="position: absolute;">
+		    									<span class="view_listen">
+		    										<span class="icon_listen"  >
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<span class="icon_play hideShowCase" style="">
+		    										<i class="far fa-play-circle fa-3x"></i>
+		    									</span>
+		    								</div>
+		    								<img src="images/item.jpg" alt="" >
+		    								
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main" >
+		    							<a href="#">
+		    								<div class="bg_action_info" style="position: absolute;">
+		    									<span class="view_listen">
+		    										<span class="icon_listen"  >
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<span class="icon_play hideShowCase" style="">
+		    										<i class="far fa-play-circle fa-3x"></i>
+		    									</span>
+		    								</div>
+		    								<img src="images/item.jpg" alt="" >
+		    								
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc </a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc </a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+
+		    				</ul>
+		    			</div>
+		    		</div>
+
+		    		<div class="mvHot">
+		    			<div>
+		    				<h2>
+		    					<a href="#">MV HOT ></a>
+		    				</h2>
+		    				<ul>
+		    					<li class="mvLi">
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li class="mvLi">
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc </a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc </a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+
+		    				</ul>
+		    			</div>
+		    		</div>
+
+					<div class="baiHat">
+						<div>
+		    				<h2>
+		    					<a href="#">BÀI HÁT ></a>
+		    				</h2>
+		    				<ul>	
+		    					<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+		    					<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+								<li>
+		    						<div>
+										<a class="thumbnail_baihat" href="#">
+											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+											<img src="images/isaac.jpg" alt="">
+										</a>
+										<div class="infor_data_mv">
+											<h3><a href="">How You Like That</a></h3>
+											<h4><a href="">BlackPink</a>		</h4>
+										</div>
+										<span class="view_listen" style="float: right; background-image: url("");margin-top:20px !important;height: 20px;
+										">
+		    								<span class="icon_listen"> 			<i class="fas fa-headphones"></i>
+		    								</span>
+		    								<span class="viewed_number">52.990</span>
+		    							</span>
+		    						</div>
+								</li>
+		    				</ul>
+		    			</div>
+					</div>
+		    		
+		    		
+		    		<div class="karaoke">
+		    			<div>
+		    				<h2>
+		    					<a href="#">KARAOKE ></a>
+		    				</h2>
+		    				<ul>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc </a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+
+		    				</ul>
+		    			</div>
+		    		</div>
+		    		<div class="giaitri">
+		    			<div>
+		    				<h2>
+		    					<a href="#">GIẢI TRÍ ></a>
+		    				</h2>
+		    				<ul>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc </a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc </a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc </a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+		    					<li>
+		    						<div class="box-main">
+		    							<a href="#">
+		    								<div class="bg_action_info">
+		    									<span class="view_listen">
+		    										<span class="icon_listen">
+		    											<i class="fas fa-headphones"></i>
+		    										</span>
+		    										<span class="viewed_number">52.990</span>
+		    									</span>
+		    									<!--<span class="icon_play">
+		    										<i class="far fa-play-circle"></i>
+		    									</span>-->
+		    								</div>
+		    								<!--<span class="avatar">
+		    									<img src="images/item.jpg" alt="">
+		    								</span>-->
+		    							</a>
+		    						</div>
+		    						<div class="infor">
+		    							<a href="#">15 Ca Khúc Trẻ Hot Nhất Tuần</a>
+		    							<h4>
+		    								<a href="#">K-ICM</a>,
+		    								<a href="#">Xesi</a>
+		    							</h4>
+		    						</div>
+		    					</li>
+
+		    				</ul>
+		    			</div>
+		    		</div>
+		    	</div>
+		    </div>
+
+		    <div class="col-lg-3 right">
+		    	<div class="nghe-si">
+		    		<ul class="image-nghe-si">
+		    			<li>
+			    			<a href="#">
+			    			<img src="images/bich_phuong.jpg" alt="Bích Phương">
+			    			</a>
+		    			</li>
+		    		</ul>
+		    		<div style="text-align: center; color: rgba(0,0,0,.5); font-size: 14px;">Top Nghệ Sĩ Trending Trong Tuần</div>
+		    		<div class="name-nghe-si"><a href="#">
+		    			<p>Bích Phương</p></a></div>
+		    		<div class="trendNgheSi">
+		    			<ul>
+		    				<li ><a href="javascript:">
+		    					<img src="images/bich_phuong.jpg" alt="Bích Phương">
+		    				</a></li>
+		    				<li><a href="javascript:">
+		    					<img src="images/black_pink.jpg" alt="BlackPink">
+		    				</a></li>
+		    				<li><a href="javascript:">
+		    					<img src="images/hoai_lam.jpg" alt="Hoài Lâm">
+		    				</a></li>
+		    				<li><a href="javascript:">
+		    					<img src="images/trung_quan_idol.jpg" alt="Trung Quân Idol">
+		    				</a></li>
+		    				<li><a href="javascript:">
+		    					<img src="images/k_icm.jpg" alt="K-ICM">
+		    				</a></li>
+		    			</ul>
+		    		</div>
+		    	</div>
+				
+				<div class="goi-y">
+					<a href="#">
+						<div >
+							<div class="content_playlist">
+	                        <h2 style="font-size: 16px; color: #fff">GỢI Ý DÀNH CHO BẠN</h2>        
+	                        <p class="text_detail" style="font-size: 14px;">Thưởng thức những ca khúc phù hợp nhất với bạn</p>
+	                            <p class="btn_playlist">
+	                                <span class="ic_play_normal"><i class="fas fa-play" style="color: #2daaed"></i></span>
+	                                <span class="btn_text" style="color: #2daaed">Nghe bài hát</span>
+	                            </p>
+	                    	</div>
+						</div>
+					</a>
+				</div>
+				<div class="chu-de-hot">
+					<div>
+						<h3>
+							<a href="#" title="Chủ Đề Hot">CHỦ ĐỀ HOT ></a>
+						</h3>
+					</div>
+					<ul>
+						<li class="topic-hot" style="margin-top: 0px;">
+							<a href="#"><img src="images/remix.jpg" alt=""></a>
+						</li>
+						<li class="topic-hot">
+							<a href="#"><img src="images/summer.jpg" alt=""></a>
+						</li>
+						<li class="topic-hot">
+							<a href="#"><img src="images/party.jpg" alt=""></a>
+						</li>
+						<li class="topic-hot">
+							<a href="#"><img src="images/lamviec.jpg" alt=""></a>
+						</li>
+					</ul>
+				</div>
+				<div class="box_chart_music">
+					<h3 >
+						<a href="#" style="color: #2daaed;">BXH BÀI HÁT </a>
+						<a href="#" style="color: gray;"><i class="far fa-play-circle"></i></a>
+					</h3>
+					<ul class="chart-choose">
+						<li style="
+						"><a class="active" href="javascript:;" >Việt Nam</a></li>
+						<li ><a href="javascript:;" >Âu Mỹ</a></li>
+						<li style=""><a href="javascript:;" >Hàn Quốc</a></li>	
+					</ul>
+					<div class="list-chart-music">
+						<ul class="">
+							<li class="one">
+								<div class="infor_data">
+									<a href="">
+										<span>1</span>
+										<img src="images/viet_nam.jpg" alt="">
+									</a>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span style="color: #1abc9c">2</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>,
+
+											<a href="">Tuấn Mạnh</a>
+										</h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span style="color: #f39c12">3</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >4</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >5</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >6</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >7</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >8</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >9</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >10</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+
+						<ul class="hideShowCase">
+							<li class="one">
+								<div class="infor_data">
+									<a href="">
+										<span>1</span>
+										<img src="images/sour_candy.jpg" alt="">
+									</a>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span style="color: #1abc9c">2</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>,
+
+											<a href="">Tuấn Mạnh</a>
+										</h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span style="color: #f39c12">3</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >4</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >5</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >6</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >7</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >8</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >9</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >10</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<ul class="hideShowCase">
+							<li class="one">
+								<div class="infor_data">
+									<a href="">
+										<span>1</span>
+										<img src="images/how_u_like_that.jpg" alt="">
+									</a>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span style="color: #1abc9c">2</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>,
+
+											<a href="">Tuấn Mạnh</a>
+										</h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span style="color: #f39c12">3</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >4</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >5</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >6</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >7</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >8</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >9</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+							<li class="two">
+								<div>
+									<span >10</span>
+									<div class="infor_data_song">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a></h4>
+									</div>
+								</div>
+							</li>
+						</ul>	
+					</div>
+				</div>
+				<div class="box_chart_mv">
+					<h3 >
+						<a href="#" style="color: #2daaed;">BXH MV </a>
+						<a href="#" style="color: gray;"><i class="far fa-play-circle"></i></a>
+					</h3>
+					<ul class="chart-choose">
+						<li style="
+						"><a class="active" href="javascript:;" >Việt Nam</a></li>
+						<li ><a href="javascript:;" >Âu Mỹ</a></li>
+						<li style=""><a href="javascript:;" >Hàn Quốc</a></li>	
+					</ul>
+					<div class="list-chart-mv">
+						<ul class="hideShowCase">
+							<li class="one">
+								<div class="infor_mv">
+									<a href="#">
+										<span  style="">1</span>
+										<span id="play"><i class="fas fa-play fa-2x" style="color: #fff"></i></span>
+										<img src="images/anh_muon_noi_voi_em.jpg" alt="">
+									</a>
+									<div class="name_video">
+										<h3><a href="#">Muốn Nói Với Em</a></h3>
+										<h4><a href="#">T Team</a></h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #1abc9c">2</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #f39c12;">3</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #fff;">4</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #fff;">5</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							
+						</ul>
+
+
+						<ul class="hideShowCase">
+							<li class="one">
+								<div class="infor_mv">
+									<a href="#">
+										<span  style="">1</span>
+										<span id="play"><i class="fas fa-play fa-2x" style="color: #fff"></i></span>
+										<img src="images/lady_gaga.jpg" alt="">
+									</a>
+									<div class="name_video">
+										<h3><a href="#">Muốn Nói Với Em</a></h3>
+										<h4><a href="#">T Team</a></h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #1abc9c">2</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #f39c12;">3</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #fff;">4</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #fff;">5</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							
+						</ul>
+
+						<ul class="">
+							<li class="one">
+								<div class="infor_mv">
+									<a href="#">
+										<span  style="">1</span>
+										<span id="play"><i class="fas fa-play fa-2x" style="color: #fff"></i></span>
+										<img src="images/jenny.jpg" alt="">
+									</a>
+									<div class="name_video">
+										<h3><a href="#">Muốn Nói Với Em</a></h3>
+										<h4><a href="#">T Team</a></h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #1abc9c">2</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #f39c12;">3</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #fff;">4</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a class="thumbnail_small" href="#">
+										<span style="color: #fff;">5</span>
+										<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
+										<img src="images/isaac.jpg" alt="">
+									</a>
+									<div class="infor_data_mv">
+										<h3><a href="">How You Like That</a></h3>
+										<h4><a href="">BlackPink</a>		</h4>
+									</div>
+								</div>
+							</li>
+							
+						</ul>	
+					</div>
+				</div>
+				<div class="top_100_song">
+					<div class="top100_head">
+						<div>
+						<a href="#"><img src="images/logo.png" alt=""></a>
+						</div>
+						<div>
+						<a href="#">TOP 100 BÀI HÁT</a>
+						</div>
+						<div class="flower" style="width: 63px;"><img src="images/flower.png" alt=""></div>
+					</div>
+					<div class="top100_content">
+						<ul>
+							<li>
+								<a href="javascript:">
+									<img src="images/top100_korean.jpg" alt="">
+									<span><i class="fas fa-play" style="color: #fff"></i></span>
+								</a>
+								<div><a href="" style="font-size: 16px;">Top 100 Nhạc Trẻ Hay Nhất</a></div>
+							</li>
+							<li>
+								<a href="javascript:">
+									<img src="images/top100_bluejazz.jpg" alt="">
+									<span><i class="fas fa-play" style="color: #fff"></i></span>
+								</a>
+								<div><a href="" style="font-size: 16px;">Top 100 Nhạc Trẻ Hay Nhất</a></div>
+							</li>
+							<li>
+								<a href="javascript:">
+									<img src="images/top100_country.jpg" alt="">
+									<span><i class="fas fa-play" style="color: #fff"></i></span>
+								</a>
+								<div><a href="" style="font-size: 16px;">Top 100 Nhạc Trẻ Hay Nhất</a></div>
+							</li>
+							<li>
+								<a href="javascript:">
+									<img src="images/top100_nhackhongloi.jpg" alt="">
+									<span><i class="fas fa-play" style="color: #fff"></i></span>
+								</a>
+								<div><a href="" style="font-size: 16px;">Top 100 Nhạc Trẻ Hay Nhất</a></div>
+							</li>
+							<li>
+								<a href="javascript:">
+									<img src="images/top100_nhactrutinh.jpg" alt="">
+									<span><i class="fas fa-play" style="color: #fff"></i></span>
+								</a>
+								<div><a href="" style="font-size: 16px;">Top 100 Nhạc Trẻ Hay Nhất</a></div>
+							</li>
+						</ul>
+						<div><a href="">Xem tất cả TOP 100</a></div>
+					</div>
+				</div>
+		    </div>
+		</div>
+
+		    
+	 </div>
+  
+
+
+
+
+	<div class="footer">
+	  <div class="container-footer">
+	  	<ul>
+	  		<li><i class="fas fa-map-marker-alt"></i>Tòa nhà HAGL Safomec, 7/1 Thành Thái,P14,Q10,Tp.HCM</li>
+	  		<li><i class="fas fa-envelope"></i>support@nct.vn</li>
+	  		<li><i class="fas fa-phone-alt"></i>(028)38687979</li>
+	  		<li style="float: right; padding-right: 20px;"><i class="far fa-copyright"></i> NCT Corp.All rights reserved</li>
+	  	</ul>
+	  </div>
+	</div>
+
+</body>
+</html>

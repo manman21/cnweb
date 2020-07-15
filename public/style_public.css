@@ -20,6 +20,7 @@ ul{ 	list-style-type: none;}
 .margin_left{	margin-left:20px; }
 .background_white{		background-color:white;}
 .nav-item{}
+i.fa-play, i.fa-play-circle{		text-shadow: 3px 3px 4px #000000;}
 ul.nav-icon li{
 	margin-right: 10px;
 }
@@ -177,12 +178,11 @@ h2 a{
 	height: 100%;
 	position: relative;
 }
-.bg_action_infor{
+.box-main .bg_action_infor{
 	display: block;
 	width: 100%;
 	height: 100%;
 	background-color: #green;
-	position: relative;
 }
 span{
 	color: #c7c7c7;;
@@ -193,24 +193,21 @@ span{
 	width: 60px;
 	font-size: 12px;
 	display: block;
+	z-index: 6; 
+	color: #FFF
 }
-.icon-play{
-	display: block;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	opacity: 0;
-}
-.icon-play:hover{
-	opacity: 1;
+.box-main .icon_play i{
+	margin-top: 40px;
+	margin-left: 50px;
+	color: #FFF
 }
 .avatar{
 	width: 100%;
 	height: 100%;
 	
 }
-.avatar img{
-	width: 90%;
+.box-main a img{
+	width: 100%;
 	height: 100%;
 }
 .infor{
@@ -310,6 +307,11 @@ li.mvLi .box-main, li.mvLi .infor{
 	height: 100%;
 	clear: both;
 }
+.baihat .view_listen{
+	float: right; 
+	background-image: url("");margin-top:20px !important;
+	height: 20px;
+}
 .thumbnail_baihat{
 	width: 60px;
 	float: left;
@@ -318,10 +320,16 @@ li.mvLi .box-main, li.mvLi .infor{
 	display: block;
 }
 .thumbnail_baihat span{
-	top: 35px;
-  	left: 35px ;
+	width: 60px;
+	height: 60px;
   	position: absolute;
-	opacity: 3;
+	opacity: 0;
+	z-index: 3;
+}
+.thumbnail_baihat span i{
+	margin-top: 26px;
+	margin-left: 26px;
+	text-shadow: 2px 2px 4px #000000;
 }
 .thumbnail_baihat span:hover{
 	opacity: 1;
@@ -945,4 +953,10 @@ li.mvLi .box-main, li.mvLi .infor{
 	position: fixed;
 	bottom: 1px;
 	z-index: 1000;
+}
+#manhmanh{
+	position: relative;
+	width: 100%;
+	min-width: 50px;
+	height: 150px;
 }
