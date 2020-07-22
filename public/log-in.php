@@ -1,3 +1,13 @@
+<?php 
+	 //setcookie("user", "", time() - (3600), "/");
+ if (isset($_COOKIE['user']))
+        {
+        	$user_ = $_COOKIE['vaitro'];
+        } else
+        {
+        	$user_ = "khong co cookie!";
+        }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +23,57 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 
-
 	<script src="script.js"></script>
+
  
 </head>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$url = "http://localhost/cnweb/public/index.php";
+    var submit = $("button[type='submit']");
+     
+    // bắt sự kiện click vào nút Login
+    submit.click(function()
+    {
+        var username = $("input[name='username']").val();
+        var password = $("input[name='password']").val();
+         
+        // Kiểm tra đã nhập tên tài khoản chưa
+        if (username == '') {
+            alert('Vui lòng nhập tài khoản');
+            return false;
+        }
+         
+        // Kiểm tra đã nhập mật khẩu chưa
+        if (password == '') {
+            alert('Vui lòng nhập mật khẩu');
+            return false;
+        }
+         
+        // Lấy tất cả dữ liệu trong form login
+        var data = $('form#form-login').serialize();
+        // Sử dụng $.ajax()
+        $.ajax({
+        type : 'post', //kiểu post
+        url  : 'submit.php', //gửi dữ liệu sang trang submit.php
+        dataType : "text",
+        data : data,
+        success :  function(result)
+               {
+                    if (result == 'false')
+                    {
+                        alert('Sai tên đăng nhập hoặc mật khẩu');
+                    } else {
+                         $('#content').html(result);
+                        // window.location.replace($url);  
+                    }
+               }
+        });
+        return false;
+    });
+});
+</script>
 <body>
 	<div class="container ">
 		<nav class="navbar navbar-expand-sm bg-white  fixed-top clear_both">
@@ -344,17 +401,19 @@
 		
 	</div>
 
+	
+
 	<div class="container-fluid margin_top" style="height: 1000px;width: 100%;background-color: #black;">
 		<div class="row">
 		    <div class="col-lg-9 left">
-		    	<form action="/action_page.php">
+		    	<form method="POST" id="form-login">
 				    <div class="form-group">
-				      <label for="email">Email:</label>
-				      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+				      <label for="email">Tên Đăng Nhập:</label>
+				      <input type="text" class="form-control" id="email" placeholder="Enter email" name="username">
 				    </div>
 				    <div class="form-group">
-				      <label for="pwd">Password:</label>
-				      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+				      <label for="pwd">Mật Khẩu:</label>
+				      <input type="text" class="form-control" id="pwd" placeholder="Enter password" name="password">
 				    </div>
 				    <div class="checkbox">
 				      <label><input type="checkbox" name="remember"> Remember me</label>
@@ -364,6 +423,8 @@
 		    </div>
 
 		    <div class="col-lg-3 right">
+		    	<p id="content">du lieu ra o day</p>
+		    	<h1><?php echo $user_?></h1>
 		    </div>
 
 		    

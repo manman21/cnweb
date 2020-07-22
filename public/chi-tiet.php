@@ -1,3 +1,12 @@
+<?php
+	 if (isset($_COOKIE['user']))
+        {
+        	$user_ = $_COOKIE['user'];
+        } else
+        {
+        	$user_ = "khong co cookie!";
+        }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +21,89 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+	<script src="https://www.youtube.com/redirect?v=ylbWDYN_r0o&event=video_description&redir_token=QUFFLUhqbFJESWFJVHNoUGR2QkU2TmxFSElzM3MtR05SQXxBQ3Jtc0tsS01hekNMNHh6dDdjTU0xODl2X2tac3BOU1hDSldXSzk3aE9BR0QwNlR2YnZ2T0JSaUhVSnFQZnpIQVZRWERiY283T3V2VVNGQ2JvSmhfRkpvTDU5alh3VEktc2x6Zl9nS1RxUHdNMUNIWkVvQTY5OA%3D%3D&q=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fjs-cookie%402%2Fsrc%2Fjs.cookie.min.js"></script>
 
 
 	<script src="script.js"></script>
  
+ 	<script src="login-logout.js"></script>
 </head>
 <body>
+
+<!-- Modal -->
+<div id="modalLogin" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng Nhập</h4>
+      </div>
+	<div class="modal-body">
+	<form method="POST" id="formm-login">
+	    <div class="form-group">
+	      <label for="email">Tên Tài Khoản:</label>
+	      <input type="text" class="form-control" placeholder="Tên Tài Khoản" name="username" id="dkTentaikhoan">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">Mật Khẩu:</label>
+	      <input type="password" class="form-control" placeholder="Mật Khẩu" name="password" id="dkMatkhau">
+	    </div>
+	    <div class="form-group form-check">
+	      <label class="form-check-label">
+	        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+	      </label>
+	    </div>
+	   
+	</form>
+	</div>
+    <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+    	 <button id="btnDangnhap" type="submit" class="btn btn-primary">Submit</button>
+     </div>
+  
+    </div>
+  </div>
+</div>
+
+
+<div id="modalRegister" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng Kí</h4>
+      </div>
+	<div class="modal-body">
+	<form method="POST" id="form-register">
+	    <div class="form-group">
+	      <label for="email">Tên Tài Khoản:</label>
+	      <input type="text" class="form-control" placeholder="Tên Tài Khoản" name="username" id="">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">Mật Khẩu:</label>
+	      <input type="password" class="form-control" placeholder="Mật Khẩu" name="password" id="">
+	    </div>
+	    <div class="form-group form-check">
+	      <label class="form-check-label">
+	        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+	      </label>
+	    </div>
+	   
+	</form>
+	</div>
+    <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+    	 <button id="btnDangki" type="submit" class="btn btn-primary">Submit</button>
+     </div>
+  
+    </div>
+  </div>
+</div>
+
+
+
 	<div class="container ">
 		<nav class="navbar navbar-expand-sm bg-white  fixed-top clear_both">
 		  <!-- Brand/logo -->
@@ -296,15 +382,26 @@
 			<span id="sidenavid"class="hideShowCase"><i class="fas fa-list-ul"></i></span>
 
 
-			<ul class="navbar-nav ml-auto nav-icon">
-				<li class="nav-item">
+			<ul id="menu-icon" class="navbar-nav ml-auto nav-icon">
+				<li id="login" class="nav-item" <?php if(!isset($_COOKIE['user']))
+				echo '<script type="text/javascript"> login_logout(); </script>' ?>>
 				    <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
 				    <ul class="submenu hideShowCase">
 			      		<li>
 			      			<ul >
-			      				<li><a href="#">Đăng Nhập</a></li>
+			      				<li><a href="#" data-toggle="modal" data-target="#modalLogin">Đăng Nhập</a></li>
 			      				<hr>
-			      				<li><a href="#">Đăng Kí</a></li>
+			      				<li><a href="#" id="aDangki" data-toggle="modal" data-target="#modalRegister">Đăng Kí</a></li>
+			      			</ul>
+			      		</li>
+			      	</ul>
+				</li>
+				<li id="logined" class="nav-item" style="display: none;">
+				    <a class="nav-link" href="#"><i class="fas fa-user-times"></i></a>
+				    <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="#" data-toggle="modal" data-target="#">Đăng Xuất</a></li>
 			      			</ul>
 			      		</li>
 			      	</ul>
@@ -344,20 +441,44 @@
 		
 	</div>
 
+	
+
 	<div class="container-fluid margin_top" style="height: 1000px;width: 100%;background-color: #black;">
 		<div class="row">
-		    <div class="col-lg-9 left">
+		    <div class="col-lg-9 left" style="padding: 50px 0px 0px 100px;">
+<p id="content"><?php echo $user_?>: DU lieu ra o day</p>
 		    	<form action="/action_page.php">
 				    <div class="form-group">
-				      <label for="email">Email:</label>
-				      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+				      <label for="email">Tên Bài Hát:</label>
+				      <input  class="form-control" id="email" placeholder="Enter email" name="email">
 				    </div>
 				    <div class="form-group">
-				      <label for="pwd">Password:</label>
-				      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+				      <label for="pwd">Album:</label>
+				      <input  class="form-control" id="pwd" placeholder="Enter password" name="pwd">
 				    </div>
-				    <div class="checkbox">
-				      <label><input type="checkbox" name="remember"> Remember me</label>
+				    <div class="form-group">
+				      <label for="pwd">Thể Loại:</label>
+				      <input name="img" value=""/>
+				    </div>
+				    <div class="form-group">
+				      <label for="email">Playlist:</label>
+				      <input  class="form-control" id="email" placeholder="Enter email" name="email">
+				    </div>
+				    <div class="form-group">
+				      <label for="email">Nghệ Sĩ:</label>
+				      <input  class="form-control" id="email" placeholder="Enter email" name="email">
+				    </div>
+				    <div class="form-group">
+				      <label for="email">Ảnh Lớn:</label>
+				      <input class="form-control" id="email" placeholder="Enter email" name="email">
+				    </div>
+				    <div class="form-group">
+				      <label for="email">Ảnh Nhỏ:</label>
+				      <input class="form-control" id="email" placeholder="Enter email" name="email">
+				    </div>
+				    <div class="form-group">
+				      <label for="email">Audio:</label>
+				      <input class="form-control" id="email" placeholder="Enter email" name="email">
 				    </div>
 				    <button type="submit" class="btn btn-default">Submit</button>
 				  </form>

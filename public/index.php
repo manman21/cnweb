@@ -60,16 +60,16 @@
 		$homeRight[] = $dat;
 	}
 	//print_r($dataLeft); exit();
-	$coursel = "SELECT * FROM baihat limit 4";
-	$slideSong = select_list($coursel);
+	$slcoursel = "SELECT * FROM baihat limit 4";
+	$slideSong = select_list($slcoursel);
 
-	$coursel2 = "SELECT * FROM nghesi limit 5";
-	$ngheSi = select_list($coursel2);
+	$slNgesi = "SELECT * FROM nghesi limit 5";
+	$ngheSi = select_list($slNgesi);
 	//print_r($ngheSi[0]["img"]);exit();
 
 
-	$coursel3 = "SELECT * FROM baihat limit 5";
-	$ngheGiHomNay = select_list($coursel3);
+	$slNghegihomnay = "SELECT * FROM baihat limit 5";
+	$ngheGiHomNay = select_list($slNghegihomnay);
 	//print_r($ngheGiHomNay[0]["img-square"]);exit();
 
 
@@ -90,7 +90,7 @@
 	$baihat = select_list($slbaihat);
 	//print_r($baihat);exit();
 
-	$slbxhBaihat = "SELECT * FROM baihat ORDER BY timecreate DESC limit 10";
+	$slbxhBaihat = "SELECT * FROM baihat ORDER BY luotnghetuan DESC limit 10";
 	$bxhBaihat = select_list($slbxhBaihat);
 	//print_r($bxhBaihat);exit();
 
@@ -1929,7 +1929,7 @@
 				
 				<div class="play-music  hideShowCase" style="">
 					<div>
-						<audio controls autoplay>
+						<audio controls >
 						  <source src="audio/la_la_land_soundtrack_celesta_another_day_of_sun_instrumental.mp3" type="audio/mpeg">
 						  Your browser does not support the audio tag.
 						</audio>
