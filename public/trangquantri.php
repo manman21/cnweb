@@ -1,11 +1,21 @@
 <?php
-	 if (isset($_COOKIE['user']))
+	include("lib_db.php");
+
+	if (isset($_COOKIE['user']))
         {
         	$user_ = $_COOKIE['user'];
-        } else
-        {
+    } else{
         	$user_ = "khong co cookie!";
-        }
+    }
+    $sqlbaihat = "select * from baihat order by id desc
+	 limit 10  ";
+	//echo $sqlbaihat;exit();
+	$baihat = select_list($sqlbaihat);
+	//print_r($baihat);exit();
+	$sqlnghesi = "select * from nghesi ";
+	//echo $sqlbaihat;exit();
+	$nghesis = select_list($sqlnghesi);
+	//print_r($nghesis);exit();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +33,52 @@
 
 	<script src="https://www.youtube.com/redirect?v=ylbWDYN_r0o&event=video_description&redir_token=QUFFLUhqbFJESWFJVHNoUGR2QkU2TmxFSElzM3MtR05SQXxBQ3Jtc0tsS01hekNMNHh6dDdjTU0xODl2X2tac3BOU1hDSldXSzk3aE9BR0QwNlR2YnZ2T0JSaUhVSnFQZnpIQVZRWERiY283T3V2VVNGQ2JvSmhfRkpvTDU5alh3VEktc2x6Zl9nS1RxUHdNMUNIWkVvQTY5OA%3D%3D&q=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fjs-cookie%402%2Fsrc%2Fjs.cookie.min.js"></script>
 
-
-	<script src="script.js"></script>
- 
- 	<script src="login-logout.js"></script>
+	<script src="script.js" ></script>
+ 	<script src="login-logout.js" type="text/javascript"></script>
+ 	<script src="quantri.js" type="text/javascript"></script>
 </head>
+<style type="text/css">
+.control-quantri{
+	width: 100%;
+	height: 458px;
+
+}
+.control-quantri li{
+	width: 70%;
+	height: ;
+	border-radius: 2px;
+}
+.quantri-list{
+	width: 100%;
+	position: relative;
+	background-color: #red;
+}
+.quantri-list > li{
+	width: 100%;
+	position: absolute;
+	background-color: #red;
+}
+table{
+	font-family: Arial,Tahoma,Helvetica,sans-serif;
+    font-size: 12px;
+    width: 200px;
+}
+th{
+	text-align: left;
+}
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+.left a{
+	color: #A3362D;
+}
+.AddSearch{
+	margin-right: 60px;
+	float: right;
+	list-style-type: disc;
+	margin-bottom: 20px;
+}
+</style>
 <body>
 
 <!-- Modal -->
@@ -43,11 +94,11 @@
 	<form method="POST" id="formm-login">
 	    <div class="form-group">
 	      <label for="email">Tên Tài Khoản:</label>
-	      <input type="text" class="form-control" placeholder="Tên Tài Khoản" name="username" id="dkTentaikhoan">
+	      <input type="text" class="form-control" placeholder="Tên Tài Khoản" name="username" id="txtTentaikhoan">
 	    </div>
 	    <div class="form-group">
 	      <label for="pwd">Mật Khẩu:</label>
-	      <input type="password" class="form-control" placeholder="Mật Khẩu" name="password" id="dkMatkhau">
+	      <input type="password" class="form-control" placeholder="Mật Khẩu" name="password" id="txtMatkhau">
 	    </div>
 	    <div class="form-group form-check">
 	      <label class="form-check-label">
@@ -79,11 +130,11 @@
 	<form method="POST" id="form-register">
 	    <div class="form-group">
 	      <label for="email">Tên Tài Khoản:</label>
-	      <input type="text" class="form-control" placeholder="Tên Tài Khoản" name="username" id="">
+	      <input type="text" class="form-control" placeholder="Tên Tài Khoản" name="username" id="dkTentaikhoan">
 	    </div>
 	    <div class="form-group">
 	      <label for="pwd">Mật Khẩu:</label>
-	      <input type="password" class="form-control" placeholder="Mật Khẩu" name="password" id="">
+	      <input type="password" class="form-control" placeholder="Mật Khẩu" name="password" id="dkMatkhau">
 	    </div>
 	    <div class="form-group form-check">
 	      <label class="form-check-label">
@@ -383,29 +434,32 @@
 
 
 			<ul id="menu-icon" class="navbar-nav ml-auto nav-icon">
-				<li id="login" class="nav-item" <?php if(!isset($_COOKIE['user']))
-				echo '<script type="text/javascript"> login_logout(); </script>' ?>>
+				<?php if(!isset($_COOKIE['user'])){
+				?>
+				<li id="login" class="nav-item" >
 				    <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
 				    <ul class="submenu hideShowCase">
 			      		<li>
 			      			<ul >
 			      				<li><a href="#" data-toggle="modal" data-target="#modalLogin">Đăng Nhập</a></li>
 			      				<hr>
-			      				<li><a href="#" id="aDangki" data-toggle="modal" data-target="#modalRegister">Đăng Kí</a></li>
+			      				<li><a href="#" data-toggle="modal" data-target="#modalRegister">Đăng Kí</a></li>
 			      			</ul>
 			      		</li>
 			      	</ul>
 				</li>
-				<li id="logined" class="nav-item" style="display: none;">
+			<?php } else {?>
+				<li id="logined" class="nav-item">
 				    <a class="nav-link" href="#"><i class="fas fa-user-times"></i></a>
 				    <ul class="submenu hideShowCase">
 			      		<li>
 			      			<ul >
-			      				<li><a href="#" data-toggle="modal" data-target="#">Đăng Xuất</a></li>
+			      				<li><a href="javascript:" id="btnDangxuat">Đăng Xuất</a></li>
 			      			</ul>
 			      		</li>
 			      	</ul>
 				</li>
+			<?php } ?>
 				<li class="nav-item">
 				    <a class="nav-link" href="#" style="color: #fab905 !important"><i class="fas fa-crown"></i></a>
 				    <ul class="submenu hideShowCase">
@@ -443,48 +497,117 @@
 
 	
 
-	<div class="container-fluid margin_top" style="height: 1000px;width: 100%;background-color: #black;">
+	<div class="container-fluid margin_top" style="">
 		<div class="row">
-		    <div class="col-lg-9 left" style="padding: 50px 0px 0px 100px;">
-<p id="content"><?php echo $user_?>: DU lieu ra o day</p>
-		    	<form action="/action_page.php">
-				    <div class="form-group">
-				      <label for="email">Tên Bài Hát:</label>
-				      <input  class="form-control" id="email" placeholder="Enter email" name="email">
-				    </div>
-				    <div class="form-group">
-				      <label for="pwd">Album:</label>
-				      <input  class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-				    </div>
-				    <div class="form-group">
-				      <label for="pwd">Thể Loại:</label>
-				      <input name="img" value=""/>
-				    </div>
-				    <div class="form-group">
-				      <label for="email">Playlist:</label>
-				      <input  class="form-control" id="email" placeholder="Enter email" name="email">
-				    </div>
-				    <div class="form-group">
-				      <label for="email">Nghệ Sĩ:</label>
-				      <input  class="form-control" id="email" placeholder="Enter email" name="email">
-				    </div>
-				    <div class="form-group">
-				      <label for="email">Ảnh Lớn:</label>
-				      <input class="form-control" id="email" placeholder="Enter email" name="email">
-				    </div>
-				    <div class="form-group">
-				      <label for="email">Ảnh Nhỏ:</label>
-				      <input class="form-control" id="email" placeholder="Enter email" name="email">
-				    </div>
-				    <div class="form-group">
-				      <label for="email">Audio:</label>
-				      <input class="form-control" id="email" placeholder="Enter email" name="email">
-				    </div>
-				    <button type="submit" class="btn btn-default">Submit</button>
-				  </form>
+		    <div class="col-lg-9 left" style="padding: 30px 0px 0px 50px;">
+		    	<ul class="quantri-list">
+		    			<li>
+		    				<ul class="AddSearch">
+			    				<li><a href="">Add</a></li>
+			    				<li><a href="">Search</a></li>
+		    				</ul>
+		    				<h3>Danh sách bài hát</h3>
+					    	<table style="width:100%">
+							  <tr>
+							    <th style="width: 10px;">id</th>
+							    <th style="width: 50px;">Name</th>
+							    <th style="width: 10px;">Nghệ Sĩ</th>
+							    <th style="width: 10px;">Edit</th>
+							    <th style="width: 10px;">Delete</th>
+							  </tr>
+							  <?php foreach ($baihat as $item) {?>
+								<tr>
+									<td><?php echo $item['id'];?></td>
+									<td><?php echo $item['name'];?></td>
+									<td>
+										<?php 
+											$idnghesis = explode(",", $item['idNghesi']);
+											foreach ($idnghesis as $idnghesi) {
+												foreach ($nghesis as $nghesi) {
+												 	if($idnghesi == $nghesi["id"]){
+												 	echo $nghesi["name"].",";
+												 	break;
+												 	}
+												}
+											}
+										?>
+										
+									</td>
+									<td><a href="edit.php?id=<?php echo $item['id'];?>">Edit</a></td>
+									<td><a href="delete.php?id=<?php echo $item['id'];?>">Delete</a></td>
+								</tr>
+								<?php } ?>
+							  
+							</table>
+					    </li>
+					  	<li class="hideShowCase">
+					  		<p>2</p>
+					    	<!-- <form action="/action_page.php">
+					    							    <div class="form-group">
+					    							      <label for="email">Tên Bài Hát:</label>
+					    							      <input  class="form-control" id="email" placeholder="Enter email" name="email">
+					    							    </div>
+					    							    <div class="form-group">
+					    							      <label for="pwd">Album:</label>
+					    							      <input  class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+					    							    </div>
+					    							    <div class="form-group">
+					    							      <label for="pwd">Thể Loại:</label>
+					    							      <input name="img" value=""/>
+					    							    </div>
+					    							    <div class="form-group">
+					    							      <label for="email">Playlist:</label>
+					    							      <input  class="form-control" id="email" placeholder="Enter email" name="email">
+					    							    </div>
+					    							    <div class="form-group">
+					    							      <label for="email">Nghệ Sĩ:</label>
+					    							      <input  class="form-control" id="email" placeholder="Enter email" name="email">
+					    							    </div>
+					    							    <div class="form-group">
+					    							      <label for="email">Ảnh Lớn:</label>
+					    							      <input class="form-control" id="email" placeholder="Enter email" name="email">
+					    							    </div>
+					    							    <div class="form-group">
+					    							      <label for="email">Ảnh Nhỏ:</label>
+					    							      <input class="form-control" id="email" placeholder="Enter email" name="email">
+					    							    </div>
+					    							    <div class="form-group">
+					    							      <label for="email">Audio:</label>
+					    							      <input class="form-control" id="email" placeholder="Enter email" name="email">
+					    							    </div>
+					    							    <button type="submit" class="btn btn-default">Submit</button>
+					    							  </form> -->
+					  	</li>
+					  	<li class="hideShowCase">
+					  		<p>3</p>
+					  	</li>
+					  	<li class="hideShowCase">
+					  		<p>4</p>
+					  	</li>
+					  	<li class="hideShowCase">
+					  		<p>5</p>
+					  	</li>
+					  	<li class="hideShowCase">
+					  		<p>6</p>
+					  	</li>
+				  </ul>
 		    </div>
 
 		    <div class="col-lg-3 right">
+		    	<ul class="control-quantri" id="control-quantri" style="">
+		    		<li class="control-quantri-list"><a href="javascript:">Bài Hát</a>  			
+		    		</li>
+		    		<li class="control-quantri-list"><a href="javascript:">Nghệ Sĩ</a>  			
+		    		</li>
+		    		<li class="control-quantri-list"><a href="javascript:">Người Dùng</a>  			
+		    		</li>
+		    		<li class="control-quantri-list"><a href="javascript:">Playlist</a>  			
+		    		</li>
+		    		<li class="control-quantri-list"><a href="javascript:">Thể Loại</a>  			
+		    		</li>
+		    		<li class="control-quantri-list"><a href="javascript:">Chủ Đề</a>  			
+		    		</li>
+		    	</ul>
 		    </div>
 
 		    

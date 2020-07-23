@@ -1,6 +1,6 @@
 <?php
 global $link;
-function data_to_sql_update($tbl,$data){
+function data_to_sql_update($tbl,$data,$cond){
 	if (!$tbl || !$data) return "";
 	$fields = array();
 	$vals = array();
@@ -8,7 +8,8 @@ function data_to_sql_update($tbl,$data){
 		$vals[] = "{$k}=n'" . sql_str($v) . "'";
 	}
 	$vals = implode(",",$vals);
-	return "update {$tbl} set {$vals}";
+	if ($cond) $cond = " where {$cond}";
+	return "update {$tbl} set {$vals} {$cond}";
 }
 function data_to_sql_insert($tbl,$data){
 	if (!$tbl || !$data) return "";
@@ -21,6 +22,18 @@ function data_to_sql_insert($tbl,$data){
 	$fields = implode(",",$fields);
 	$vals = implode(",",$vals);
 	return "insert into {$tbl} ({$fields}) values ({$vals})";
+}
+//manh them ham nay
+function data_to_sql_delete($tbl,$cond){
+	if (!$tbl || !$cond) return "";
+	$fields = array();
+	$vals = array();
+	foreach ($data as $k=>$v){
+		$vals[] = "{$k}=n'" . sql_str($v) . "'";
+	}
+	$vals = implode(",",$vals);
+	if ($cond) $cond = " where {$cond}";
+	return "DELETE TABLE {$tbl}  where  {$cond}";
 }
 function logDebug($mess){
 	error_log( date('d.m.Y h:i:s') . " $mess \n", 3, "log.log");
@@ -55,7 +68,7 @@ function exec_select($sql){
 	logDebug("sql=[$sql]");//de fix bug
 	connect();
 	global $link;
-	$ret = isset($ret) ? $ret : "";
+	$ret = isset($ret) ? $ret : array();
 	//$res = mysqli_query($link,$sql) ;
 	$res = $link->query($sql);
 	$row = array();
@@ -73,7 +86,6 @@ function exec_select($sql){
 		$i = 1;
 		//lay tung dong ket qua
 		//while( $row = mysqli_fetch_array($res,MYSQL_ASSOC) )
-			$ret = array();
 		while( $row = $res->fetch_array(MYSQLI_ASSOC) )
 		{				
 			$ret[]= $row ;
@@ -116,4 +128,26 @@ function sql_str($val){
 		return "" . mysqli_real_escape_string($link,stripslashes($val)) . "" ;
 	}
 	return "" . mysqli_real_escape_string($link,$val)  . "" ;
+}
+//manh them ham nay
+function exec_delete($sql){
+	logDebug( "<!-- sql=[$sql] -->");//de fix bug
+	connect();
+	global $link;
+	//$res = mysqli_query($link,$sql) ;
+	$res = $link->query($sql);
+	$row = array();
+	//Lay loi sau khi thuc hien truy van
+	$err = mysqli_error($link);
+	//$err = $link->error();
+	//kiem tra
+	if ($err){
+		print("Khong thể delete duoc,ERROR=[" . $err . "]" );
+		print(  "COUNT=[0]" );
+		return -1;
+	}
+	//$ret = mysqli_affected_rows();
+	//$ret = $res->affected_rows();
+	close();
+	return 1;
 }

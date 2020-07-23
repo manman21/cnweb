@@ -1,10 +1,9 @@
 $(document).ready(function(){
-	$url = "http://localhost/cnweb/public/log-in.php";
+	$url = "http://localhost/cnweb/public/trangquantri.php";
 	$url1 = "http://localhost/cnweb/public/index.php";
 	$("#btnDangnhap").click(function () {
-		var username = $("#dkTentaikhoan").val();
-        var password = $("#dkMatkhau").val();
-         
+		var username = $("#txtTentaikhoan").val();
+        var password = $("#txtMatkhau").val();
         if (username == '') {
             alert('Vui lòng nhập tài khoản');
             return false;
@@ -39,9 +38,6 @@ $(document).ready(function(){
                     }
                }
         });
-
-
-
 	    $("#modalLogin").modal("hide");
 		});
 
@@ -51,16 +47,11 @@ $(document).ready(function(){
 	  const parts = value.split(`; ${name}=`);
 	  if (parts.length === 2) return parts.pop().split(';').shift();
 	}
-	function login_logout() {
-	 $("#login").css("display","none");
-	 $("#logined").css("display","inline");
-	}
 
 
 	$("#btnDangki").click(function () {
-		var username = $("#txtTentaikhoan").val();
-        var password = $("#txtMatkhau").val();
-         
+		var username = $("#dkTentaikhoan").val();
+        var password = $("#dkMatkhau").val();
         if (username == '') {
             alert('Vui lòng nhập tài khoản');
             return false;
@@ -69,11 +60,11 @@ $(document).ready(function(){
             alert('Vui lòng nhập mật khẩu');
             return false;
         }
-        var data = $('#modalLogin form').serialize();
+        var data = $('#modalRegister form').serialize();
         //alert(data);
         $.ajax({
         type : 'post', 
-        url  : 'login-exc.php',
+        url  : 'register-exc.php',
         dataType : "text",
         data : data,
         success :  function(result)
@@ -81,18 +72,21 @@ $(document).ready(function(){
                		//alert(result);
                     if (result == 'false')
                     {
-                        alert('Sai tên đăng nhập hoặc mật khẩu');
+                        alert('Đăng kí thất bại!');
                     } else {
-                        $('#content').html(result);
-                        window.location.replace($url); 
-                        //location.reload(); 
+                    	var cookie_vaitro = getCookie("vaitro");
+                        //alert(cookie_vaitro);
+                        if(cookie_vaitro == "0")
+                        {
+                        	//window.location.replace($url); 
+                        } else {
+                        	location.reload(); 
+                        }
                     }
                }
         });
-
-
-
 	    $("#modalRegister").modal("hide");
 		});
 
+	
 });

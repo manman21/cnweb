@@ -110,12 +110,95 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+	<script src="https://www.youtube.com/redirect?v=ylbWDYN_r0o&event=video_description&redir_token=QUFFLUhqbFJESWFJVHNoUGR2QkU2TmxFSElzM3MtR05SQXxBQ3Jtc0tsS01hekNMNHh6dDdjTU0xODl2X2tac3BOU1hDSldXSzk3aE9BR0QwNlR2YnZ2T0JSaUhVSnFQZnpIQVZRWERiY283T3V2VVNGQ2JvSmhfRkpvTDU5alh3VEktc2x6Zl9nS1RxUHdNMUNIWkVvQTY5OA%3D%3D&q=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fjs-cookie%402%2Fsrc%2Fjs.cookie.min.js"></script>
 
-
-	<script src="script.js"></script>
- 
+	<script src="script.js" ></script>
+ 	<script src="login-logout.js" type="text/javascript"></script>
 </head>
+<script>
+/*$(document).ready(function(){
+  $("#btnDangnhap").click(function(){
+    alert("Background color background-color");
+  });
+});*/
+
+</script>
 <body>
+
+<!-- Modal -->
+<div id="modalLogin" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng Nhập</h4>
+      </div>
+	<div class="modal-body">
+	<form method="POST" id="formm-login">
+	    <div class="form-group">
+	      <label for="email">Tên Tài Khoản:</label>
+	      <input type="text" class="form-control" placeholder="Tên Tài Khoản" name="username" id="txtTentaikhoan">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">Mật Khẩu:</label>
+	      <input type="password" class="form-control" placeholder="Mật Khẩu" name="password" id="txtMatkhau">
+	    </div>
+	    <div class="form-group form-check">
+	      <label class="form-check-label">
+	        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+	      </label>
+	    </div>
+	   
+	</form>
+	</div>
+    <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+    	 <button id="btnDangnhap" type="submit" class="btn btn-primary">Submit</button>
+     </div>
+  
+    </div>
+  </div>
+</div>
+
+
+<div id="modalRegister" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Đăng Kí</h4>
+      </div>
+	<div class="modal-body">
+	<form method="POST" id="form-register">
+	    <div class="form-group">
+	      <label for="email">Tên Tài Khoản:</label>
+	      <input type="text" class="form-control" placeholder="Tên Tài Khoản" name="username" id="dkTentaikhoan">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">Mật Khẩu:</label>
+	      <input type="password" class="form-control" placeholder="Mật Khẩu" name="password" id="dkMatkhau">
+	    </div>
+	    <div class="form-group form-check">
+	      <label class="form-check-label">
+	        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+	      </label>
+	    </div>
+	   
+	</form>
+	</div>
+    <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+    	 <button id="btnDangki" type="submit" class="btn btn-primary">Submit</button>
+     </div>
+  
+    </div>
+  </div>
+</div>
+
+
+
 	<div class="container ">
 		<nav class="navbar navbar-expand-sm bg-white  fixed-top clear_both">
 		  <!-- Brand/logo -->
@@ -394,19 +477,33 @@
 			<span id="sidenavid"class="hideShowCase"><i class="fas fa-list-ul"></i></span>
 
 
-			<ul class="navbar-nav ml-auto nav-icon">
-				<li class="nav-item">
+			<ul id="menu-icon" class="navbar-nav ml-auto nav-icon">
+				<?php if(!isset($_COOKIE['user'])){
+				?>
+				<li id="login" class="nav-item" >
 				    <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
 				    <ul class="submenu hideShowCase">
 			      		<li>
 			      			<ul >
-			      				<li><a href="#">Đăng Nhập</a></li>
+			      				<li><a href="#" data-toggle="modal" data-target="#modalLogin">Đăng Nhập</a></li>
 			      				<hr>
-			      				<li><a href="#">Đăng Kí</a></li>
+			      				<li><a href="#" data-toggle="modal" data-target="#modalRegister">Đăng Kí</a></li>
 			      			</ul>
 			      		</li>
 			      	</ul>
 				</li>
+			<?php } else {?>
+				<li id="logined" class="nav-item">
+				    <a class="nav-link" href="#"><i class="fas fa-user-times"></i></a>
+				    <ul class="submenu hideShowCase">
+			      		<li>
+			      			<ul >
+			      				<li><a href="javascript:" id="btnDangxuat">Đăng Xuất</a></li>
+			      			</ul>
+			      		</li>
+			      	</ul>
+				</li>
+			<?php } ?>
 				<li class="nav-item">
 				    <a class="nav-link" href="#" style="color: #fab905 !important"><i class="fas fa-crown"></i></a>
 				    <ul class="submenu hideShowCase">
