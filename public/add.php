@@ -53,6 +53,14 @@
 }
 .middle a{	color: #A3362D;}
 </style>
+
+<script>
+/*$(document).ready(function(){
+  $("#addBaihat").click(function(){
+    alert("The paragraph was clicked.");
+  });
+});*/
+</script>
 <body>
 
 <!-- Modal -->
@@ -483,7 +491,7 @@
 		    	<ul>
 		    		<li>
 		    			<h3>Thêm tin bài hát</h3>
-		    			<form class="form" action="add_exec.php" method="post"  enctype="multipart/form-data">
+		    			<form class="form"  method="post" action="add-exc.php" enctype="multipart/form-data">
 							<label>Tên bài hát</label>
 							<input type="text" name="name" value=""/>
 								
@@ -533,13 +541,13 @@
 							<label>Ảnh (Chữ nhật)</label>
 							<input type="file" name="img" value=""/>
 							<div class="clear-both"></div>
-							<label>Ảnh vuông</label>
+							<label>Ảnh (vuông)</label>
 							<input type="file" name="img-square" value=""/>
 							<div class="clear-both"></div>
 							<label>Audio</label>
 							<input type="file" name="audio" value=""/>
 							<div class="clear-both"></div>
-							<button >OK</button>
+							<button id="addBaihat" >OK</button>
 						</form>
 		    		</li>
 		    	</ul>

@@ -38,10 +38,9 @@
  	<script src="quantri.js" type="text/javascript"></script>
 </head>
 <style type="text/css">
-.control-quantri{
+/* .control-quantri{
 	width: 100%;
 	height: 458px;
-
 }
 .control-quantri li{
 	width: 70%;
@@ -51,13 +50,11 @@
 .quantri-list{
 	width: 100%;
 	position: relative;
-	background-color: #red;
 }
 .quantri-list > li{
 	width: 100%;
 	position: absolute;
-	background-color: #red;
-}
+} */
 table{
 	font-family: Arial,Tahoma,Helvetica,sans-serif;
     font-size: 12px;
@@ -91,7 +88,7 @@ th, td {
         <h4 class="modal-title">Đăng Nhập</h4>
       </div>
 	<div class="modal-body">
-	<form method="POST" id="formm-login">
+	<form method="POST" id="formm-login" >
 	    <div class="form-group">
 	      <label for="email">Tên Tài Khoản:</label>
 	      <input type="text" class="form-control" placeholder="Tên Tài Khoản" name="username" id="txtTentaikhoan">
