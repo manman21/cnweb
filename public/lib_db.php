@@ -33,7 +33,7 @@ function data_to_sql_delete($tbl,$cond){
 	}
 	$vals = implode(",",$vals);
 	if ($cond) $cond = " where {$cond}";
-	return "DELETE TABLE {$tbl}  where  {$cond}";
+	return "delete TABLE {$tbl}  where  {$cond}";
 }
 function logDebug($mess){
 	error_log( date('d.m.Y h:i:s') . " $mess \n", 3, "log.log");
@@ -108,7 +108,7 @@ function exec_update($sql){
 	//$err = $link->error();
 	//kiem tra
 	if ($err){
-		print("Khong thể select duoc,ERROR=[" . $err . "]" );
+		print("Khong thể update duoc,ERROR=[" . $err . "]" );
 		print(  "COUNT=[0]" );
 		return -1;
 	}

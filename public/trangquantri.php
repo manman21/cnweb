@@ -500,7 +500,7 @@ th, td {
 		    	<ul class="quantri-list">
 		    			<li>
 		    				<ul class="AddSearch">
-			    				<li><a href="">Add</a></li>
+			    				<li><a href="add.php">Add</a></li>
 			    				<li><a href="">Search</a></li>
 		    				</ul>
 		    				<h3>Danh sách bài hát</h3>

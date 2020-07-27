@@ -55,11 +55,11 @@
 </style>
 
 <script>
-/*$(document).ready(function(){
-  $("#addBaihat").click(function(){
-    alert("The paragraph was clicked.");
-  });
-});*/
+$(document).ready(function(){
+
+  	
+
+});
 </script>
 <body>
 
@@ -485,69 +485,72 @@
 		    	</div>
 		    <div class="col-lg-8 middle" style="padding: 30px 0px 0px 0px;">
 		    			    <ul class="AddSearch">
-			    				<li><a href="">Add</a></li>
+			    				<li><a href="add.php">Add</a></li>
 			    				<li><a href="">Search</a></li>
 		    				</ul>
 		    	<ul>
 		    		<li>
 		    			<h3>Thêm tin bài hát</h3>
-		    			<form class="form"  method="post" action="add-exc.php" enctype="multipart/form-data">
+		    			<form class="form form-baihat"  method="POST" enctype="multipart/form-data">
 							<label>Tên bài hát</label>
-							<input type="text" name="name" value=""/>
+							<input type="text" name="tenbaihat" />
 								
 							<div class="clear-both"></div>
 							<label>Album</label>
-							<select name="album">
+							<select name="album" class="clalbum">
 								<option value="">--Select--</option>
 								<?php foreach ($album as $item) {?>
 				
 									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
 								<?php } ?>
 							</select>
-							<p></p>
+							<p class="clalbum"></p>
 							<div class="clear-both"></div>
 							<label>Thể Loại</label>
-							<select name="theloai">
+							<select class="cltheloai" name="theloai">
 								<option value="">--Select--</option>
 								<?php foreach ($theloai as $item) {?>
 				
 									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
 								<?php } ?>
 							</select>
-							<p></p>
+							<p class="cltheloai"></p>
 							<div class="clear-both"></div>
 							<label>Playlist</label>
-							<select name="playlist">
+							<select name="playlist" class="clplaylist">
 								<option value="">--Select--</option>
 								<?php foreach ($playlist as $item) {?>
 				
 									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
 								<?php } ?>
 							</select>
-							<p></p>
+							<p class="clplaylist"></p>
 							<div class="clear-both"></div>
 							<label>Nghệ Sĩ</label>
-							<select name="nghesi">
+							<select name="nghesi" class="clnghesi">
 								<option value="">--Select--</option>
 								<?php foreach ($nghesi as $item) {?>
 				
 									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
 								<?php } ?>
 							</select>
-							<p></p>
+							<p class="clnghesi"></p>
 							<div class="clear-both"></div>
 							
 							<div class="clear-both"></div>
 							<label>Ảnh (Chữ nhật)</label>
-							<input type="file" name="img" value=""/>
+							<input type="file" name="img"  />
+
 							<div class="clear-both"></div>
 							<label>Ảnh (vuông)</label>
 							<input type="file" name="img-square" value=""/>
+
 							<div class="clear-both"></div>
 							<label>Audio</label>
 							<input type="file" name="audio" value=""/>
 							<div class="clear-both"></div>
-							<button id="addBaihat" >OK</button>
+
+							<button id="addBaihat">OK</button>
 						</form>
 		    		</li>
 		    	</ul>
