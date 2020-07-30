@@ -16,11 +16,27 @@ function getIdbyname($name,$table){
 	$id = 0;
 	$sql = "";
 	foreach ($list as $value) {
-		$sql = "select id from ".$table." where ".$name." = ".$value;
-		id = select_one($sql);
-		array_push($listId, );
+		$sql = "select id from ".$table." where name = ".$value;
+		$id = select_one($sql);
+		array_push($listId, $id );
 	}
 	return implode(",", $listId);
+}
+function getNamebyid($id,$table){
+	if(!isset($id) || !isset($table) )
+	{
+		return "";
+	}
+	$listId = explode(",", $id);
+	$listName = "";
+	$name = "";
+	$sql = "";
+	foreach ($list as $value) {
+		$sql = "select id from ".$table." where ".$id." = ".$value;
+		$name = select_one($sql);
+		array_push($listName, $name);
+	}
+	return implode(",", $listName);
 }
 function upload_file_by_name($name, $table, $target_dir=""){
 	//print("upload_file_by_name->name=[{$name}]");

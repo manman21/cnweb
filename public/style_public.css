@@ -979,3 +979,13 @@ li.mvLi .box-main, li.mvLi .infor{
 	width: 100%;
 	position: absolute;
 }
+
+/*Trang add*/
+.add-list{
+	width: 100%;
+	position: relative;
+}
+.add-list > li{
+	width: 100%;
+	position: absolute;
+}

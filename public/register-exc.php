@@ -4,8 +4,16 @@ if ($_POST)
 {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
-    $nguoidung = array("tentaikhoan"=>$username , "matkhau"=>$password);
+    $nguoidung = array("tentaikhoan"=>$username , "matkhau"=>$password,"vaitro"=>"1");
 
+    $checkUsernamesql = "SELECT tentaikhoan FROM nguoidung ";
+    //echo($checkUsernamesql);exit();
+    $checkUsername = select_list($checkUsernamesql);
+    //print_r($checkUsername);exit();
+    if(array_search($username, array_column($checkUsername, 'tentaikhoan')) !== FALSE){
+        echo "Đã tồn tại tài khoản: ".$username;
+        exit();
+    }
     //$topSql = "SELECT * FROM nguoidung where tentaikhoan = '".$username."'";
     //echo($topSql);exit();
 	$datauser = data_to_sql_insert("nguoidung",$nguoidung);
@@ -13,28 +21,27 @@ if ($_POST)
     $ret = exec_update($datauser);
     if ($ret == 1)
     {
-         $cookie_name = "user";
-         $cookie_value = $username;
-        if (isset($_COOKIE['user']))
-        {
-            setcookie($cookie_name, $cookie_value, time() + (3600), "/");
-            setcookie("vaitro","1" , time() + (3600), "/"); 
-        }
-        else
-        {
-            setcookie($cookie_name, "", time() - (3600), "/");
-            setcookie("vaitro","" , time() - (3600), "/"); 
-            
-            setcookie($cookie_name, $cookie_value, time() + (3600), "/"); 
-            setcookie("vaitro","1" , time() + (3600), "/"); 
-        }
-?>
-<p>tao thanh cong</p>
-<?php
+            $name = "user";
+            $cookie_name = $nguoidung["tentaikhoan"];
+            $vaitro = "vaitro";
+            $cookie_vaitro = $nguoidung["vaitro"];
+            if (!isset($_COOKIE['user']))
+            {
+                setcookie($name, $cookie_name, time() + (3600), "/");
+                setcookie($vaitro,$cookie_vaitro , time() + (3600), "/"); 
+            }
+            else
+            {
+                setcookie($name, "", time() - (3600), "/");
+                setcookie($vaitro,"" , time() - (3600), "/"); 
+                
+                setcookie($name, $cookie_name, time() + (3600), "/");
+                setcookie($vaitro,$cookie_vaitro , time() + (3600), "/"); 
+            }
+        echo "Đăng kí thành công";exit();
     } else {
-?>
- <h1>tao that bai</h1>
-<?php
+        echo "Đăng kí thất bại";
     }
 }
+
 ?>

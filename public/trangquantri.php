@@ -33,28 +33,11 @@
 
 	<script src="https://www.youtube.com/redirect?v=ylbWDYN_r0o&event=video_description&redir_token=QUFFLUhqbFJESWFJVHNoUGR2QkU2TmxFSElzM3MtR05SQXxBQ3Jtc0tsS01hekNMNHh6dDdjTU0xODl2X2tac3BOU1hDSldXSzk3aE9BR0QwNlR2YnZ2T0JSaUhVSnFQZnpIQVZRWERiY283T3V2VVNGQ2JvSmhfRkpvTDU5alh3VEktc2x6Zl9nS1RxUHdNMUNIWkVvQTY5OA%3D%3D&q=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fjs-cookie%402%2Fsrc%2Fjs.cookie.min.js"></script>
 
-	<script src="script.js" ></script>
+	<script src="script.js" type="text/javascript"></script>
  	<script src="login-logout.js" type="text/javascript"></script>
  	<script src="quantri.js" type="text/javascript"></script>
 </head>
 <style type="text/css">
-/* .control-quantri{
-	width: 100%;
-	height: 458px;
-}
-.control-quantri li{
-	width: 70%;
-	height: ;
-	border-radius: 2px;
-}
-.quantri-list{
-	width: 100%;
-	position: relative;
-}
-.quantri-list > li{
-	width: 100%;
-	position: absolute;
-} */
 table{
 	font-family: Arial,Tahoma,Helvetica,sans-serif;
     font-size: 12px;
@@ -76,6 +59,11 @@ th, td {
 	margin-bottom: 20px;
 }
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+	})
+</script>
 <body>
 
 <!-- Modal -->
@@ -498,9 +486,9 @@ th, td {
 		<div class="row">
 		    <div class="col-lg-9 left" style="padding: 30px 0px 0px 50px;">
 		    	<ul class="quantri-list">
-		    			<li>
+		    			<li class="">
 		    				<ul class="AddSearch">
-			    				<li><a href="add.php">Add</a></li>
+			    				<li><a href="add.php?table=baihat">Add</a></li>
 			    				<li><a href="">Search</a></li>
 		    				</ul>
 		    				<h3>Danh sách bài hát</h3>
@@ -530,8 +518,8 @@ th, td {
 										?>
 										
 									</td>
-									<td><a href="edit.php?id=<?php echo $item['id'];?>">Edit</a></td>
-									<td><a href="delete.php?id=<?php echo $item['id'];?>">Delete</a></td>
+									<td><a href="edit.php?id=<?php echo $item['id'];?>&&table=baihat">Edit</a></td>
+									<td><a href="javascript:" class="deleteBaihat">Delete</a></td>
 								</tr>
 								<?php } ?>
 							  

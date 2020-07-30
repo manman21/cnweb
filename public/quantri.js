@@ -18,35 +18,61 @@ $(document).ready(function(){
 		}
 	});
 	
-	//console khi co su kien thay doi input file
-	$("select.clnghesi").change(function(){
-    	changeSelecttag("select.clnghesi","p.clnghesi");
-  	});
-	$("select.cltheloai").change(function(){
-		changeSelecttag("select.cltheloai","p.cltheloai");
-	});
-	$("select.clalbum").change(function(){
-		changeSelecttag("select.clalbum","p.clalbum");
-	});
-	$("select.clplaylist").change(function(){
-		changeSelecttag("select.clplaylist","p.clplaylist");
-	});
-    function changeSelecttag(selectt,pt){
-    	var strPtag = $(pt).text();
-    	//alert(strnghesi);
-    	var selected = strPtag.indexOf($(selectt+" option:selected").text());
-    	//alert(selected);
-    	if(strPtag == ""){
-    		$(pt).html($(selectt+" option:selected").text());
-    	} else if($(selectt+" option:selected").text() != "--Select--" && selected == -1){
-    		$(pt).html(strPtag + ","+$(selectt+" option:selected").text());
+	//console khi co su kien thay doi input 
+	$("select.clnghesi").change(function(e){
+		e.preventDefault();
+		var p_current = $(this).parent().children("p.clnghesi").text();
+		//alert(p_current);
+		var optionSelected = $(this).children("option:selected").text();
+		var checkSelected = p_current.indexOf(optionSelected);
+		if(p_current == ""){
+    		$(this).parent().children("p.clnghesi").html(optionSelected);
+    	} else if(optionSelected != "--Select--" && checkSelected == -1){
+    		$(this).parent().children("p.clnghesi").html(p_current + ","+ optionSelected);
     	} else {
 
     	}
-  	}
+    	//changeSelecttag("select.clnghesi:parent","p.clnghesi");
+  	});
+	$("select.cltheloai").change(function(){
+		var p_current = $(this).parent().children("p.cltheloai").text();
+		//alert(p_current);
+		var optionSelected = $(this).children("option:selected").text();
+		var checkSelected = p_current.indexOf(optionSelected);
+		if(p_current == ""){
+    		$(this).parent().children("p.cltheloai").html(optionSelected);
+    	} else if(optionSelected != "--Select--" && checkSelected == -1){
+    		$(this).parent().children("p.cltheloai").html(p_current + ","+ optionSelected);
+    	} else {
 
+    	}
+	});
+	$("select.clalbum").change(function(){
+		var p_current = $(this).parent().children("p.clalbum").text();
+		//alert(p_current);
+		var optionSelected = $(this).children("option:selected").text();
+		var checkSelected = p_current.indexOf(optionSelected);
+		if(p_current == ""){
+    		$(this).parent().children("p.clalbum").html(optionSelected);
+    	} else if(optionSelected != "--Select--" && checkSelected == -1){
+    		$(this).parent().children("p.clalbum").html(p_current + ","+ optionSelected);
+    	} else {
 
-  	//Add bai hat
+    	}
+	});
+	$("select.clplaylist").change(function(){
+		var p_current = $(this).parent().children("p.clplaylist").text();
+		//alert(p_current);
+		var optionSelected = $(this).children("option:selected").text();
+		var checkSelected = p_current.indexOf(optionSelected);
+		if(p_current == ""){
+    		$(this).parent().children("p.clplaylist").html(optionSelected);
+    	} else if(optionSelected != "--Select--" && checkSelected == -1){
+    		$(this).parent().children("p.clplaylist").html(p_current + ","+ optionSelected);
+    	} else {
+
+    	}
+	});
   	$("input[type=file][name=img]").on('change',function(){
   		//console.log(this.files[0]);
   		var file_data = $(this).prop('files')[0];
@@ -55,12 +81,12 @@ $(document).ready(function(){
 	     console.log(formData.get('img'));
   	});
 
-  	$("input[type=file][name=img-square]").on('change',function(){
+  	$("input[type=file][name=img_square]").on('change',function(){
   		//console.log(this.files[0]);
   		var file_data = $(this).prop('files')[0];
   		 var formData = new FormData();
-  		  formData.append("img", file_data);
-	     console.log(formData.get('img'));
+  		  formData.append("img_square", file_data);
+	     console.log(formData.get('img_square'));
   	});
 
   	$("input[type=file][name=audio]").on('change',function(){
@@ -70,27 +96,36 @@ $(document).ready(function(){
   		  formData.append("audio", file_data);
 	     console.log(formData.get('audio'));
   	});
-  	$("#addBaihat").click(function(){
-		//alert("The paragraph was clicked.inline");
+  	
+  	//addbaihat
+	$("#addBaihat").on('click',function(){
+		//alert("The paragraph was clicked.outline");
 		var name = $("input[type=text][name=tenbaihat]").val();
 		var album = $("p.clalbum").text();
 		var theloai = $("p.cltheloai").text();
 		var playlist = $("p.clplaylist").text();
 		var nghesi = $("p.clnghesi").text();
-	    var file_img = $("input[type=file][name=img]").prop('files')[0];
-	    var file_img_square = $("input[type=file][name=img-square]").prop('files')[0];
-	    var file_audio = $("input[type=file][name=audio]").prop('files')[0];
-	    var formData = new FormData();
-	    formData.append("img", file_img);
-	    formData.append("img-square", file_img_square);
-	    formData.append("audio", file_audio);
-	    form_data.append("name", name);
-	 	form_data.append("album", album);
-	 	form_data.append("theloai", theloai);
-	 	form_data.append("playlist", playlist);
-	 	form_data.append("nghesi", nghesi);
+	    /*var file_img = $("input[type=file][name=img]").prop('files')[0];
+	    var file_img_square = $("input[type=file][name=img_square]").prop('files')[0];
+	    var file_audio = $("input[type=file][name=audio]").prop('files')[0];*/
+	    var formData = new FormData($("form.form-baihat")[0]);
+	    formData.delete("album");
+	    formData.delete("theloai");
+	    formData.delete("playlist");
+	    formData.delete("nghesi");
+	    formData.delete("name");
 
-	 	
+	    //
+	 	formData.append("album", album);
+	 	formData.append("name", name);
+	 	formData.append("theloai", theloai);
+	 	formData.append("playlist", playlist);
+	 	formData.append("nghesi", nghesi);
+	 	formData.append("table", "baihat");
+	 	for (var value of formData.values()) {
+		   console.log(value);
+		}
+		//console.log(formData.get("name"));
 	    $.ajax({
                 url: 'add-exc.php', 
                 method: "POST",
@@ -99,7 +134,29 @@ $(document).ready(function(){
                 cache:false,
                 processData:false,
                 success: function (res) {
+                	alert("ket qua tra ve:" + res +":");
+                }
+            });
+	    return false;
+	});
+	//deletebaihat
+	$(".deleteBaihat").click(function(){
+	 		var id = $("td:parent:eq(0)").text();
+	 		var table = "baihat";
+	 		var formData = new FormData();
+		    formData.append("id", id);
+		    formData.append("table", table);
+		    //alert(JSON.stringify(formData));
+	    $.ajax({
+                url: 'delete-exc.php', 
+                method: "POST",
+                data: formData,
+                contentType: false,
+                cache:false,
+                processData:false,
+                success: function (res) {
                 	alert(res);
+                	location.reload();
                 }
             });
 	});

@@ -7,27 +7,18 @@
     } else{
         	$user_ = "khong co cookie!";
     }
-    if (isset($_GET['table']))
-        {
-        	$table = $_GET['table'];
-    }
-    else{
-    	$table = "baihat";
-    }
-    //echo $table;exit();
-    $sqlAlbum = "select * from album ";
-	$album = select_list($sqlAlbum);
-	//print_r($album);exit();
-	$sqlNghesi = "select * from nghesi ";
-	$nghesi = select_list($sqlNghesi);
-	//print_r($nghesi);exit();
-	$sqlPlaylist = "select * from playlist ";
-	$playlist = select_list($sqlPlaylist);
-	//print_r($playlist);exit();
-	$sqlTheLoai = "select * from theloai ";
-	$theloai = select_list($sqlTheLoai);
-	//print_r($theloai);exit();
-
+    if($_REQUEST != "")
+   	{
+   		$table = isset($_REQUEST['table']) ? $_REQUEST['table'] : "";
+   		//echo $table; exit();
+   		$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : "";
+   		//echo $id; exit();
+   		$sqlEdit = "Select * from {$table} where id = {$id}";
+   		//echo $sqlDelete; exit();
+   		$edit = select_one($sqlEdit);
+   		//print_r($edit);exit();
+   		//echo "Xóa thành công table:".$table.", id:".$id; exit();
+   	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,25 +52,13 @@
 	float: right;
 }
 .middle a{	color: #A3362D;}
-.add-list{
-	width: 100%;
-	position: relative;
-}
-.add-list > li{
-	width: 100%;
-	position: absolute;
-}
-
 </style>
 
 <script>
 $(document).ready(function(){
-	$("#btntest").click(function(e){
-		e.preventDefault();
-	 	return false;
-
-	});
-	
+	$("#addBaihat").click(function(){
+		alert("inline");
+	})
 });
 </script>
 <body>
@@ -505,13 +484,12 @@ $(document).ready(function(){
 			<div class="col-lg-2 left" style="">
 		    	</div>
 		    <div class="col-lg-8 middle" style="padding: 30px 0px 0px 0px;">
-		    	<ul class="add-list">
-		    		<li class="<?php if ($table != "baihat"){   			
-		    			echo "hideShowCase";}?>">
-		    			<ul class="AddSearch">
-			    				<li><a href="add.php?table=baihat">Add</a></li>
-			    				<li><a href="trangquantri.php?table=baihat">Search</a></li>
+		    			    <ul class="AddSearch">
+			    				<li><a href="add.php">Add</a></li>
+			    				<li><a href="">Search</a></li>
 		    				</ul>
+		    	<ul>
+		    		<li>
 		    			<h3>Thêm tin bài hát</h3>
 		    			<form class="form form-baihat"  method="POST" enctype="multipart/form-data">
 							<label>Tên bài hát</label>
@@ -565,365 +543,14 @@ $(document).ready(function(){
 
 							<div class="clear-both"></div>
 							<label>Ảnh (vuông)</label>
-							<input type="file" name="img_square" value=""/>
+							<input type="file" name="img-square" value=""/>
 
 							<div class="clear-both"></div>
 							<label>Audio</label>
 							<input type="file" name="audio" value=""/>
 							<div class="clear-both"></div>
 
-							<button id="addBaihat" type="button">OK</button>
-							<button id="btntest" type="button">test</button>
-						</form>
-		    		</li>
-		    		<li class="<?php if ($table != "nghesi"){   			
-		    			echo "hideShowCase";}?>">
-		    			<ul class="AddSearch">
-			    				<li><a href="add.php?table=nghesi">Add</a></li>
-			    				<li><a href="trangquantri.php?table=nghesi">Search</a></li>
-		    			</ul>
-		    			<h3>Thêm nghệ sĩ</h3>
-		    			<form class="form form-baihat"  method="POST" enctype="multipart/form-data">
-							<label>Tên bài hát</label>
-							<input type="text" name="tenbaihat" />
-								
-							<div class="clear-both"></div>
-							<label>Album</label>
-							<select name="album" class="clalbum">
-								<option value="">--Select--</option>
-								<?php foreach ($album as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clalbum"></p>
-							<div class="clear-both"></div>
-							<label>Thể Loại</label>
-							<select class="cltheloai" name="theloai">
-								<option value="">--Select--</option>
-								<?php foreach ($theloai as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="cltheloai"></p>
-							<div class="clear-both"></div>
-							<label>Playlist</label>
-							<select name="playlist" class="clplaylist">
-								<option value="">--Select--</option>
-								<?php foreach ($playlist as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clplaylist"></p>
-							<div class="clear-both"></div>
-							<label>Nghệ Sĩ</label>
-							<select name="nghesi" class="clnghesi">
-								<option value="">--Select--</option>
-								<?php foreach ($nghesi as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clnghesi"></p>
-							<div class="clear-both"></div>
-							
-							<div class="clear-both"></div>
-							<label>Ảnh (Chữ nhật)</label>
-							<input type="file" name="img"  />
-
-							<div class="clear-both"></div>
-							<label>Ảnh (vuông)</label>
-							<input type="file" name="img_square" value=""/>
-
-							<div class="clear-both"></div>
-							<label>Audio</label>
-							<input type="file" name="audio" value=""/>
-							<div class="clear-both"></div>
-
-							<button id="addBaihat" type="button">OK</button>
-							<button id="btntest" type="button">test</button>
-						</form>
-		    		</li>
-		    		<li class="<?php if ($table != "nguoidung"){   			
-		    			echo "hideShowCase";}?>">
-		    			<ul class="AddSearch">
-			    				<li><a href="add.php?table=nguoidung">Add</a></li>
-			    				<li><a href="trangquantri.php?table=nguoidung">Search</a></li>
-		    			</ul>
-		    			<h3>Thêm tin người dùng</h3>
-		    			<form class="form form-baihat"  method="POST" enctype="multipart/form-data">
-							<label>Tên bài hát</label>
-							<input type="text" name="tenbaihat" />
-								
-							<div class="clear-both"></div>
-							<label>Album</label>
-							<select name="album" class="clalbum">
-								<option value="">--Select--</option>
-								<?php foreach ($album as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clalbum"></p>
-							<div class="clear-both"></div>
-							<label>Thể Loại</label>
-							<select class="cltheloai" name="theloai">
-								<option value="">--Select--</option>
-								<?php foreach ($theloai as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="cltheloai"></p>
-							<div class="clear-both"></div>
-							<label>Playlist</label>
-							<select name="playlist" class="clplaylist">
-								<option value="">--Select--</option>
-								<?php foreach ($playlist as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clplaylist"></p>
-							<div class="clear-both"></div>
-							<label>Nghệ Sĩ</label>
-							<select name="nghesi" class="clnghesi">
-								<option value="">--Select--</option>
-								<?php foreach ($nghesi as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clnghesi"></p>
-							<div class="clear-both"></div>
-							
-							<div class="clear-both"></div>
-							<label>Ảnh (Chữ nhật)</label>
-							<input type="file" name="img"  />
-
-							<div class="clear-both"></div>
-							<label>Ảnh (vuông)</label>
-							<input type="file" name="img_square" value=""/>
-
-							<div class="clear-both"></div>
-							<label>Audio</label>
-							<input type="file" name="audio" value=""/>
-							<div class="clear-both"></div>
-
-							<button id="addBaihat" type="button">OK</button>
-							<button id="btntest" type="button">test</button>
-						</form>
-		    		</li>
-		    		<li class="<?php if ($table != "playlist"){   			
-		    			echo "hideShowCase";}?>">
-		    			<ul class="AddSearch">
-			    				<li><a href="add.php?table=playlist">Add</a></li>
-			    				<li><a href="trangquantri.php?table=playlist">Search</a></li>
-		    			</ul>
-		    			<h3>Thêm Playlist</h3>
-		    			<form class="form form-baihat"  method="POST" enctype="multipart/form-data">
-							<label>Tên bài hát</label>
-							<input type="text" name="tenbaihat" />
-								
-							<div class="clear-both"></div>
-							<label>Album</label>
-							<select name="album" class="clalbum">
-								<option value="">--Select--</option>
-								<?php foreach ($album as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clalbum"></p>
-							<div class="clear-both"></div>
-							<label>Thể Loại</label>
-							<select class="cltheloai" name="theloai">
-								<option value="">--Select--</option>
-								<?php foreach ($theloai as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="cltheloai"></p>
-							<div class="clear-both"></div>
-							<label>Playlist</label>
-							<select name="playlist" class="clplaylist">
-								<option value="">--Select--</option>
-								<?php foreach ($playlist as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clplaylist"></p>
-							<div class="clear-both"></div>
-							<label>Nghệ Sĩ</label>
-							<select name="nghesi" class="clnghesi">
-								<option value="">--Select--</option>
-								<?php foreach ($nghesi as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clnghesi"></p>
-							<div class="clear-both"></div>
-							
-							<div class="clear-both"></div>
-							<label>Ảnh (Chữ nhật)</label>
-							<input type="file" name="img"  />
-
-							<div class="clear-both"></div>
-							<label>Ảnh (vuông)</label>
-							<input type="file" name="img_square" value=""/>
-
-							<div class="clear-both"></div>
-							<label>Audio</label>
-							<input type="file" name="audio" value=""/>
-							<div class="clear-both"></div>
-
-							<button id="addBaihat" type="button">OK</button>
-							<button id="btntest" type="button">test</button>
-						</form>
-		    		</li>
-		    		<li class="<?php if ($table != "theloai"){   			
-		    			echo "hideShowCase";}?>">
-		    			<ul class="AddSearch">
-			    				<li><a href="add.php?table=theloai">Add</a></li>
-			    				<li><a href="trangquantri.php?table=theloai">Search</a></li>
-		    			</ul>
-		    			<h3>Thêm thể loại</h3>
-		    			<form class="form form-baihat"  method="POST" enctype="multipart/form-data">
-							<label>Tên bài hát</label>
-							<input type="text" name="tenbaihat" />
-								
-							<div class="clear-both"></div>
-							<label>Album</label>
-							<select name="album" class="clalbum">
-								<option value="">--Select--</option>
-								<?php foreach ($album as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clalbum"></p>
-							<div class="clear-both"></div>
-							<label>Thể Loại</label>
-							<select class="cltheloai" name="theloai">
-								<option value="">--Select--</option>
-								<?php foreach ($theloai as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="cltheloai"></p>
-							<div class="clear-both"></div>
-							<label>Playlist</label>
-							<select name="playlist" class="clplaylist">
-								<option value="">--Select--</option>
-								<?php foreach ($playlist as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clplaylist"></p>
-							<div class="clear-both"></div>
-							<label>Nghệ Sĩ</label>
-							<select name="nghesi" class="clnghesi">
-								<option value="">--Select--</option>
-								<?php foreach ($nghesi as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clnghesi"></p>
-							<div class="clear-both"></div>
-							
-							<div class="clear-both"></div>
-							<label>Ảnh (Chữ nhật)</label>
-							<input type="file" name="img"  />
-
-							<div class="clear-both"></div>
-							<label>Ảnh (vuông)</label>
-							<input type="file" name="img_square" value=""/>
-
-							<div class="clear-both"></div>
-							<label>Audio</label>
-							<input type="file" name="audio" value=""/>
-							<div class="clear-both"></div>
-
-							<button id="addBaihat" type="button">OK</button>
-							<button id="btntest" type="button">test</button>
-						</form>
-		    		</li>
-		    		<li class="<?php if ($table != "chude"){   			
-		    			echo "hideShowCase";}?>">
-		    			<ul class="AddSearch">
-			    				<li><a href="add.php?table=chude">Add</a></li>
-			    				<li><a href="trangquantri.php?table=chude">Search</a></li>
-		    			</ul>
-		    			<h3>Thêm Chủ đề</h3>
-		    			<form class="form form-baihat"  method="POST" enctype="multipart/form-data">
-							<label>Tên bài hát</label>
-							<input type="text" name="tenbaihat" />
-								
-							<div class="clear-both"></div>
-							<label>Album</label>
-							<select name="album" class="clalbum">
-								<option value="">--Select--</option>
-								<?php foreach ($album as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clalbum"></p>
-							<div class="clear-both"></div>
-							<label>Thể Loại</label>
-							<select class="cltheloai" name="theloai">
-								<option value="">--Select--</option>
-								<?php foreach ($theloai as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="cltheloai"></p>
-							<div class="clear-both"></div>
-							<label>Playlist</label>
-							<select name="playlist" class="clplaylist">
-								<option value="">--Select--</option>
-								<?php foreach ($playlist as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clplaylist"></p>
-							<div class="clear-both"></div>
-							<label>Nghệ Sĩ</label>
-							<select name="nghesi" class="clnghesi">
-								<option value="">--Select--</option>
-								<?php foreach ($nghesi as $item) {?>
-				
-									<option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-								<?php } ?>
-							</select>
-							<p class="clnghesi"></p>
-							<div class="clear-both"></div>
-							
-							<div class="clear-both"></div>
-							<label>Ảnh (Chữ nhật)</label>
-							<input type="file" name="img"  />
-
-							<div class="clear-both"></div>
-							<label>Ảnh (vuông)</label>
-							<input type="file" name="img_square" value=""/>
-
-							<div class="clear-both"></div>
-							<label>Audio</label>
-							<input type="file" name="audio" value=""/>
-							<div class="clear-both"></div>
-
-							<button id="addBaihat" type="button">OK</button>
-							<button id="btntest" type="button">test</button>
+							<button id="addBaihat">OK</button>
 						</form>
 		    		</li>
 		    	</ul>

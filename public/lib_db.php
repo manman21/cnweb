@@ -24,16 +24,9 @@ function data_to_sql_insert($tbl,$data){
 	return "insert into {$tbl} ({$fields}) values ({$vals})";
 }
 //manh them ham nay
-function data_to_sql_delete($tbl,$cond){
-	if (!$tbl || !$cond) return "";
-	$fields = array();
-	$vals = array();
-	foreach ($data as $k=>$v){
-		$vals[] = "{$k}=n'" . sql_str($v) . "'";
-	}
-	$vals = implode(",",$vals);
-	if ($cond) $cond = " where {$cond}";
-	return "delete TABLE {$tbl}  where  {$cond}";
+function data_to_sql_delete($tbl,$id){
+	if (!$tbl || !$id) return "";
+	return "delete from {$tbl}  where id = {$id}";
 }
 function logDebug($mess){
 	error_log( date('d.m.Y h:i:s') . " $mess \n", 3, "log.log");

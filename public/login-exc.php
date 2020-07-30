@@ -5,35 +5,41 @@ if ($_POST)
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    $topSql = "SELECT * FROM nguoidung where tentaikhoan = '".$username."'";
-    //echo($topSql);exit();
-	$datauser = select_one($topSql);
-	//print_r($datauser);//exit();
-
-    if ($datauser && $password == $datauser["matkhau"])
-    {
-         $cookie_name = "user";
-         $cookie_value = $datauser["tentaikhoan"];
-        if (!isset($_COOKIE['user']))
-        {
-            setcookie($cookie_name, $cookie_value, time() + (3600), "/");
-            setcookie("vaitro",$datauser["vaitro"] , time() + (3600), "/"); 
+    $checkUsernamesql = "SELECT tentaikhoan FROM nguoidung ";
+    //echo($checkUsernamesql);exit();
+    $checkUsername = select_list($checkUsernamesql);
+    //print_r($checkUsername);exit();
+    if(array_search($username, array_column($checkUsername, 'tentaikhoan')) !== FALSE){
+        $checkMatkhausql = "SELECT * FROM nguoidung where tentaikhoan = '".$username."'";
+        //echo($checkMatkhausql);exit();
+        $checkMatkhau = select_one($checkMatkhausql);
+        //print_r($checkMatkhau);exit();
+        if($password != $checkMatkhau["matkhau"]){
+            echo "Sai mật khẩu";
+            exit();
         }
-        else
-        {
-            setcookie($cookie_name, "", time() - (3600), "/");
-            setcookie("vaitro","" , time() - (3600), "/"); 
-            
-            setcookie($cookie_name, $cookie_value, time() + (3600), "/"); 
-            setcookie("vaitro",$datauser["vaitro"] , time() + (3600), "/"); 
-        }
-?>
-<p><?php //echo $user?></p>
-<?php
+            $name = "user";
+            $cookie_name = $checkMatkhau["tentaikhoan"];
+            $vaitro = "vaitro";
+            $cookie_vaitro = $checkMatkhau["vaitro"];
+            if (!isset($_COOKIE['user']))
+            {
+                setcookie($name, $cookie_name, time() + (3600), "/");
+                setcookie($vaitro,$cookie_vaitro , time() + (3600), "/"); 
+            }
+            else
+            {
+                setcookie($name, "", time() - (3600), "/");
+                setcookie($vaitro,"" , time() - (3600), "/"); 
+                
+                setcookie($name, $cookie_name, time() + (3600), "/");
+                setcookie($vaitro,$cookie_vaitro , time() + (3600), "/"); 
+            }
+            echo "Đăng nhập thành công!";
     } else {
-?>
- <h1>Tên đăng nhập hoặc mật khẩu sai!</h1>
-<?php
+        echo "Không tồn tại tài khoản: ".$username;
     }
+
+    
 }
 ?>
