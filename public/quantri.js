@@ -16,13 +16,33 @@ $(document).ready(function(){
 		  	break;
 		  }
 		}
+		/*var strX = $(this).text();
+ 		$("td:parent:eq(0)").removeClass("active");
+ 		$(".list-chart-music ul").addClass("hideShowCase");
+ 		//alert(strX);
+ 		switch(strX) {
+		  case "Việt Nam":
+		  	$("a", this).addClass("active");
+		    $(".list-chart-music ul:eq(0)").removeClass("hideShowCase");
+		    break;
+		  case "Âu Mỹ":
+		  	$("a", this).addClass("active");
+		    $(".list-chart-music ul:eq(1)").removeClass("hideShowCase");
+		    break;
+		  case "Hàn Quốc":
+		  	$("a", this).addClass("active");
+		     $(".list-chart-music ul:eq(2)").removeClass("hideShowCase");
+		    break;
+		}*/
 	});
 	
 	//console khi co su kien thay doi input 
 	$("select.clnghesi").change(function(e){
 		e.preventDefault();
+		$(this).parent().children("span.clnghesi").text("");
 		var p_current = $(this).parent().children("p.clnghesi").text();
-		//alert(p_current);
+		var p_html = $(this).parent().children("p.clnghesi").html();
+		//alert(p_html);
 		var optionSelected = $(this).children("option:selected").text();
 		var checkSelected = p_current.indexOf(optionSelected);
 		if(p_current == ""){
@@ -35,6 +55,7 @@ $(document).ready(function(){
     	//changeSelecttag("select.clnghesi:parent","p.clnghesi");
   	});
 	$("select.cltheloai").change(function(){
+		$(this).parent().children("span.cltheloai").text("");
 		var p_current = $(this).parent().children("p.cltheloai").text();
 		//alert(p_current);
 		var optionSelected = $(this).children("option:selected").text();
@@ -48,6 +69,7 @@ $(document).ready(function(){
     	}
 	});
 	$("select.clalbum").change(function(){
+		$(this).parent().children("span.clalbum").text("");
 		var p_current = $(this).parent().children("p.clalbum").text();
 		//alert(p_current);
 		var optionSelected = $(this).children("option:selected").text();
@@ -61,6 +83,8 @@ $(document).ready(function(){
     	}
 	});
 	$("select.clplaylist").change(function(){
+		$(this).parent().children("span.clplaylist").text("");
+		//alert($(this).parent().children("span.clplaylist").text());
 		var p_current = $(this).parent().children("p.clplaylist").text();
 		//alert(p_current);
 		var optionSelected = $(this).children("option:selected").text();
@@ -79,6 +103,7 @@ $(document).ready(function(){
   		 var formData = new FormData();
   		  formData.append("img", file_data);
 	     console.log(formData.get('img'));
+	     alert(cars);
   	});
 
   	$("input[type=file][name=img_square]").on('change',function(){
@@ -135,6 +160,59 @@ $(document).ready(function(){
                 processData:false,
                 success: function (res) {
                 	alert("ket qua tra ve:" + res +":");
+                	
+                }
+            });
+	    return false;
+	});
+	//editbaihat
+	$("#editBaihat").click(function(){
+		//alert("The paragraph was clicked.outline");
+		var id = $(this).parent().children("span.id").text();
+		//alert(id);
+		var name = $(this).parent().children("input[type=text][name=tenbaihat]").val();
+		var album = $(this).parent().children("p.clalbum").text();
+		var theloai = $(this).parent().children("p.cltheloai").text();
+		var playlist = $(this).parent().children("p.clplaylist").text();
+		var nghesi = $(this).parent().children("p.clnghesi").text();
+	    var formData = new FormData($("form.form-baihat")[0]);
+	    formData.delete("album");
+	    formData.delete("theloai");
+	    formData.delete("playlist");
+	    formData.delete("nghesi");
+	    formData.delete("name");
+
+	    //
+	    if(name != ""){
+	    	formData.append("name", name);
+	    }
+	    if(album != ""){
+	    	formData.append("album", album);
+	    }
+	    if(theloai != ""){
+	    	formData.append("theloai", theloai);
+	    }
+	    if(playlist != ""){
+	    	formData.append("playlist", playlist);
+	    }
+	    if(nghesi != ""){
+	    	formData.append("nghesi", nghesi);
+	    }
+	 	formData.append("table", "baihat");
+	 	formData.append("id", id);
+	 	for (var value of formData.values()) {
+		   console.log(value);
+		}
+	    $.ajax({
+                url: 'edit-exc.php', 
+                method: "POST",
+                data: formData,
+                contentType: false,
+                cache:false,
+                processData:false,
+                success: function (res) {
+                	alert("ket qua tra ve:" + res +":");
+                	window.location.replace("http://localhost/cnweb/public/trangquantri.php");
                 }
             });
 	    return false;
@@ -142,6 +220,8 @@ $(document).ready(function(){
 	//deletebaihat
 	$(".deleteBaihat").click(function(){
 	 		var id = $("td:parent:eq(0)").text();
+	 		//var id = $(this).parent("td.id").text();
+	 		alert(id);
 	 		var table = "baihat";
 	 		var formData = new FormData();
 		    formData.append("id", id);
@@ -160,4 +240,10 @@ $(document).ready(function(){
                 }
             });
 	});
+	/*$(".deletenghesi").click(function(){
+	 		var id = $("td:parent:eq(0)").text();
+	 		var table = "nghesi";
+	 		var formData = new FormData();
+	});*/
+	
 });

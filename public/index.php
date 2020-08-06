@@ -11,54 +11,7 @@
 	$data = select_one($topSql);
 	//kiểm tra kết quả
 	//print_r($data); exit();
-	
-	//2.Truy vấn các chuyên mục hiển thị ở home
-	//2.1 Tạo SQL
-	$cateSql = "SELECT * FROM grab_category where home > 0 ";
-	//2.1 Kiểm tra sql đúng không?
-	//echo $cateSql; exit();
-	//2.2 Thự thi
-	$datas = select_list($cateSql);
-	//kiểm tra kết quả
-	//print_r($datas); exit();
-	$dataLeft = array();
-	$dataRight = array();
-	$i = 0;
-	foreach ($datas as $dat){
-		$ssql = "SELECT id,img, title, description FROM grab_content where cid={$dat["id"]} limit 6";
-		$subdatas = select_list($ssql);
-		if (!$subdatas) continue;
-		//print_r($subdatas); exit();
-		$dat["list"] = $subdatas;
-		if ($i == 0){
-			$dataLeft[] = $dat;
-		}else{
-			$dataRight[] = $dat;
-		}
-		$i = ($i + 1) % 2;
-	}
-	//print_r($dataLeft); exit();
-	//print_r($dataRight); exit();
-	
-	
-	//3.Truy vấn các chuyên mục hiển thị ở right
-	//3.1 Tạo SQL
-	$rcateSql = "SELECT * FROM grab_category where `right` > 0 order by `right` desc";
-	//3.1 Kiểm tra sql đúng không?
-	//echo $rcateSql; exit();
-	//3.2 Thự thi
-	$datas = select_list($rcateSql);
-	//kiểm tra kết quả
-	//print_r($datas); exit();
-	$homeRight = array();
-	foreach ($datas as $dat){
-		$ssql = "SELECT id,img, title, description FROM grab_content where cid={$dat["id"]} limit 6";
-		$subdatas = select_list($ssql);
-		if (!$subdatas) continue;
-		//print_r($subdatas); exit();
-		$dat["list"] = $subdatas;
-		$homeRight[] = $dat;
-	}
+
 	//print_r($dataLeft); exit();
 	$slcoursel = "SELECT * FROM baihat limit 4";
 	$slideSong = select_list($slcoursel);
@@ -70,7 +23,7 @@
 
 	$slNghegihomnay = "SELECT * FROM baihat limit 5";
 	$ngheGiHomNay = select_list($slNghegihomnay);
-	//print_r($ngheGiHomNay[0]["img-square"]);exit();
+	//print_r($ngheGiHomNay[0]["img_square"]);exit();
 
 
 
@@ -116,11 +69,117 @@
  	<script src="login-logout.js" type="text/javascript"></script>
 </head>
 <script>
-/*$(document).ready(function(){
-  $("#btnDangnhap").click(function(){
-    alert("Background color background-color");
-  });
-});*/
+$(document).ready(function(){
+	var x = document.getElementById("idBaihat");
+	var time;
+ 	$("div.play-pause i:eq(0)").click(function(){
+ 		$("div.play-pause i:eq(0)").addClass("hideShowCase");
+ 		$("div.play-pause i:eq(1)").removeClass("hideShowCase");
+ 		x.play();
+ 		var duration = Math.floor(x.duration);
+ 		//alert(duration);
+ 		$("div.time-audio input").attr("max",duration);
+ 		//alert($("div.time-audio input").attr("max"));
+ 		time = setInterval(addTime, 1000);
+ 	})
+
+ 	function addTime() {
+	  	var timeAdd = $("div.time-audio input[type=range]").val();
+	  	//alert(timeAdd);
+	  	var minute = Math.floor(parseInt(timeAdd)/60);
+	  	var second = parseInt(timeAdd)%60;
+	  	if(Math.floor(minute/10) == 0) {
+	  		$("div.time-audio p span:eq(0)").text("0"+ minute);
+	  	} else {
+	  		$("div.time-audio p span:eq(0)").text(minute);
+	  	}
+
+	  	var second = parseInt(timeAdd)%60;
+	  	if(Math.floor(second/10) == 0) {
+	  		$("div.time-audio p span:eq(1)").text("0"+second);
+	  	} else {
+	  		$("div.time-audio p span:eq(1)").text(second);
+	  	}
+	  	timeAdd = parseInt(timeAdd) + 1;
+ 	 	$("div.time-audio input[type=range]").val(timeAdd);
+	}
+
+ 	$("div.play-pause i:eq(1)").click(function(){
+ 		$("div.play-pause i:eq(1)").addClass("hideShowCase");
+ 		$("div.play-pause i:eq(0)").removeClass("hideShowCase");
+ 		x.pause();
+ 		clearInterval(time);
+ 	})
+ 	$("div.volume-audio").mouseenter(function(){
+ 		$("input",this).removeClass("hideShowCase")
+ 	})
+ 	$("div.volume-audio").mouseleave(function(){
+ 		$("input",this).addClass("hideShowCase")
+ 	})
+ 	$("div.volume-audio input").change(function(){
+ 		x.volume = $(this).val();
+ 		/*alert($(this).val());*/
+ 	})
+ 	$("div.time-audio input[type=range]").change(function(){
+ 		var timeAdd = $(this).val();
+	  	//alert(timeAdd);
+	  	var minute = Math.floor(parseInt(timeAdd)/60);
+	  	var second = parseInt(timeAdd)%60;
+	  	if(Math.floor(minute/10) == 0) {
+	  		$("div.time-audio p span:eq(0)").text("0"+ minute);
+	  	} else {
+	  		$("div.time-audio p span:eq(0)").text(minute);
+	  	}
+
+	  	var second = parseInt(timeAdd)%60;
+	  	if(Math.floor(second/10) == 0) {
+	  		$("div.time-audio p span:eq(1)").text("0"+second);
+	  	} else {
+	  		$("div.time-audio p span:eq(1)").text(second);
+	  	}
+ 	 	x.currentTime = parseInt(timeAdd);
+ 	})
+ 	$(".choose-song").click(function(){
+ 		clearInterval(time);
+ 		$("div.play-pause i:eq(0)").addClass("hideShowCase");
+ 		$("div.play-pause i:eq(1)").removeClass("hideShowCase");
+ 		var srcSong = $("source",this).attr("src");
+ 		var formData = new FormData();
+	 	formData.append("id", srcSong);
+	 	for (var value of formData.values()) {
+		   console.log(value);
+		}
+		//console.log(formData.get("name"));
+	    $.ajax({
+                url: 'player.php', 
+                method: "POST",
+                data: formData,
+                contentType: false,
+                cache:false,
+                processData:false,
+                success: function (res) {
+                	//alert("ket qua tra ve:" + res +":");
+                	var obj = JSON.parse(res);
+                	$("audio").html('<source src="' + obj[3] + '" type="audio/mpeg">');
+                	$("div.play-music img").attr("src" , obj[2] );
+                	$("div.play-music .singer-audio").text(obj[1]);
+                	$("div.play-music .song-audio").text(obj[0]);
+                	$("div.play-music").removeClass("hideShowCase");
+			 		/*x = document.getElementById("idBaihat");
+			 		$("div.play-music img").attr("src" , $("img",this).attr("src") );*/
+			 		//x = new Audio(url);
+			 		x.load();
+			 		x.play();
+			 		var duration = Math.floor(x.duration);
+			 		//alert(duration);
+			 		$("div.time-audio input").attr("max",duration);
+			 		$("div.time-audio input[type=range]").val("0");
+			 		//alert($("div.time-audio input").attr("max"));
+			 		time = setInterval(addTime, 1000);
+                }
+            });
+ 	})
+});
 
 </script>
 <body>
@@ -202,7 +261,7 @@
 	<div class="container ">
 		<nav class="navbar navbar-expand-sm bg-white  fixed-top clear_both">
 		  <!-- Brand/logo -->
-			<a class="navbar-brand nav-brand" href="#" style="margin-left: 40px !important">
+			<a class="navbar-brand nav-brand" href="index.php" style="margin-left: 40px !important">
 			    <img src="images/ic_bigo_talent.png" alt="logo" style="max-width: 100%;height: 30px">
 			</a>
 			  <!-- Links -->
@@ -550,8 +609,9 @@
 		    				<div class="img-slide">
 		    					<ul id="myList" >
 		    						<li class="slide0 ">
-			    						<a href="#">
+			    						<a href="javascript:" class="choose-song" >
 			    							<img src="<?php print_r($slideSong[0]["img"])?>" alt="Song">
+			    							<source src="<?php echo $slideSong[0]["id"]?>" type="audio/mpeg">
 		    							</a>
 		    						</li>
 		    					</ul>
@@ -560,8 +620,9 @@
 		    					<ul class="img-choose-ul">
 		    						<?php foreach ($slideSong as $item) {?>
 									<li class="slide">
-		    							<a href="#">
+		    							<a href="javascript:" class="choose-song">
 		    								<img src="<?php print_r($item["img"])?>" alt="Song">
+		    								<source src="<?php echo $item['id']?>" type="audio/mpeg">
 		    							</a>
 		    						</li>
 									<?php } ?>
@@ -581,7 +642,8 @@
 		    					<?php foreach ($ngheGiHomNay as $item) {?>
 		    					<li>
 		    						<div class="box-main" >
-		    							<a href="#">
+		    							<a href="javascript:" class="choose-song">
+		    								
 		    								<div class="bg_action_info" style="position: absolute;">
 		    									<span class="view_listen">
 		    										<span class="icon_listen"  >
@@ -593,8 +655,8 @@
 		    										<i class="far fa-play-circle fa-3x"></i>
 		    									</span>
 		    								</div>
-		    								<img src="<?php echo ($item["img-square"]);?>" alt="">
-		    								
+		    								<img src="<?php echo ($item["img_square"]);?>" alt="">
+		    								<source src="<?php echo $item['id']?>" type="audio/mpeg" >
 		    							</a>
 		    						</div>
 		    						<div class="infor">
@@ -617,7 +679,8 @@
 				
 		    					<li>
 		    						<div class="box-main" >
-		    							<a href="#">
+		    							<a href="javascript:" class="choose-song">
+		    								
 		    								<div class="bg_action_info" style="position: absolute;">
 		    									<span class="view_listen">
 		    										<span class="icon_listen"  >
@@ -629,8 +692,8 @@
 		    										<i class="far fa-play-circle fa-3x"></i>
 		    									</span>
 		    								</div>
-		    								<img src="<?php echo $item["img-square"];?>" alt="">
-		    								
+		    								<img src="<?php echo $item["img_square"];?>" alt="">
+		    								<source src="<?php echo $item['id']?>" type="audio/mpeg">
 		    							</a>
 		    						</div>
 		    						<div class="infor">
@@ -945,13 +1008,25 @@
 		    					<?php foreach ($baihat as $item) {?>
 									<li>
 		    						<div class="baihat">
-										<a class="thumbnail_baihat" href="#">
+										<a class="thumbnail_baihat choose-song" href="javascript:" >
 											<span class="play"><i class="fas fa-play " style="color: #fff"></i></span>
-											<img src="<?php echo $item["img-square"]?>" alt="">
+											<img src="<?php echo $item["img_square"]?>" alt="">
+											<source src="<?php echo $item['id']?>" type="audio/mpeg">
 										</a>
-										<div class="infor_data_mv">
-											<h3><a href=""><?php echo $item["name"]?></a></h3>
-											<h4><a href="">BlackPink</a>		</h4>
+										<div class="infor_data_mv" >
+											<h3><a href="javascript:" class="choose-song"><source src="<?php echo $item['id']?>" type="audio/mpeg"><?php echo $item["name"]?></a></h3>
+											<h4><?php 
+		    								$nghesi0 = explode( "," , $item["idNghesi"]);
+											    foreach($nghesi0 as $y ) {?>
+
+											    	<?php foreach($allNghesi as $z ){?>
+											  			<?php if( $z["id"] == $y ) {?>
+											  				<a href="#"><?php echo $z["name"]?></a>, 
+											  			<?php } ?>
+											  		<?php } ?>
+
+												<?php } ?>
+		    								</h4>		
 										</div>
 										<span class="view_listen" style="">
 		    								<span class="icon_listen"> 			
@@ -1496,7 +1571,7 @@
 								<div class="infor_data">
 									<a href="">
 										<span>1</span>
-										<img src="<?php echo $bxhBaihat[0]["img-square"]?>" alt="">
+										<img src="<?php echo $bxhBaihat[0]["img_square"]?>" alt="">
 									</a>
 									<div class="infor_data_song">
 										<h3><a href=""><?php echo $bxhBaihat[0]["name"]?></a></h3>
@@ -2025,10 +2100,37 @@
 				</div>
 				
 				<div class="play-music  hideShowCase" style="">
+					<img src="images/top100_nhactrutinh.jpg" alt="">
+					<div class="song-audio">How You Like That</div>
+					<div class="singer-audio">Black Pink</div>
+
+
+					<div class="play-control">
+
+						<div class="prior-song"><i class="fas fa-step-backward"></i></div>
+
+						<div class="play-pause">
+							<i class="fas fa-play fa-2x hideShowCase"></i>
+							<i class="fas fa-pause fa-2x "></i>
+						</div>
+
+						<div class="next-song"><i class="fas fa-step-forward"></i></div>
+					</div>
+
+
+					<div class="time-audio">
+						<input type="range" id="time-audio" name="points" min="0" step="1" value="0">
+						<p><span style="color: black;">00</span>:<span style="color: black;">00</span></p>
+					</div>
+
+					<div class="volume-audio">
+						<i class="fas fa-volume-up"></i><input class="hideShowCase" type="range" id="volume-audio" name="points" min="0" max="1" step="0.05">
+					</div>
+
 					<div>
-						<audio controls >
-						  <source src="audio/la_la_land_soundtrack_celesta_another_day_of_sun_instrumental.mp3" type="audio/mpeg">
-						  Your browser does not support the audio tag.
+
+						<audio id="idBaihat"controls class="hideShowCase">
+						 <!--  <source src="audio/HoaNoKhongMau_HoaiLam.mp3" type="audio/mpeg"> -->
 						</audio>
 					</div>
 				</div>

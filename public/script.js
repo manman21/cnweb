@@ -150,5 +150,13 @@ $(document).ready(function(){
 		    break;
 		}
  	})
+ 	/*$("div.play-pause i:eq(0)").click(function(){
+ 		$("div.play-pause i:eq(0)").addClass("hideShowCase");
+ 		$("div.play-pause i:eq(1)").removeClass("hideShowCase");
+ 	})
+ 	$("div.play-pause i:eq(1)").click(function(){
+ 		$("div.play-pause i:eq(1)").addClass("hideShowCase");
+ 		$("div.play-pause i:eq(0)").removeClass("hideShowCase");
+ 	})*/
 
 });

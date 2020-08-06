@@ -11,11 +11,16 @@
 	 limit 10  ";
 	//echo $sqlbaihat;exit();
 	$baihat = select_list($sqlbaihat);
-	//print_r($baihat);exit();
-	$sqlnghesi = "select * from nghesi ";
-	//echo $sqlbaihat;exit();
-	$nghesis = select_list($sqlnghesi);
-	//print_r($nghesis);exit();
+	// print_r($baihat);exit();
+
+	$sqlAllnghesi = "select * from nghesi ";
+	$allNghesi = select_list($sqlAllnghesi);
+
+	$sqlnghesi = "select * from nghesi order by id desc
+	 limit 10";
+	$nghesi = select_list($sqlnghesi);
+	$nghesi2 = select_list($sqlnghesi);
+	// print_r($nghesi);exit();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -143,7 +148,7 @@ th, td {
 	<div class="container ">
 		<nav class="navbar navbar-expand-sm bg-white  fixed-top clear_both">
 		  <!-- Brand/logo -->
-			<a class="navbar-brand nav-brand" href="#" style="margin-left: 40px !important">
+			<a class="navbar-brand nav-brand" href="index.php" style="margin-left: 40px !important">
 			    <img src="images/ic_bigo_talent.png" alt="logo" style="max-width: 100%;height: 30px">
 			</a>
 			  <!-- Links -->
@@ -502,13 +507,13 @@ th, td {
 							  </tr>
 							  <?php foreach ($baihat as $item) {?>
 								<tr>
-									<td><?php echo $item['id'];?></td>
+									<td class="id"><?php echo $item['id'];?></td>
 									<td><?php echo $item['name'];?></td>
 									<td>
 										<?php 
 											$idnghesis = explode(",", $item['idNghesi']);
 											foreach ($idnghesis as $idnghesi) {
-												foreach ($nghesis as $nghesi) {
+												foreach ($allNghesi as $nghesi) {
 												 	if($idnghesi == $nghesi["id"]){
 												 	echo $nghesi["name"].",";
 												 	break;
@@ -526,54 +531,136 @@ th, td {
 							</table>
 					    </li>
 					  	<li class="hideShowCase">
-					  		<p>2</p>
-					    	<!-- <form action="/action_page.php">
-					    							    <div class="form-group">
-					    							      <label for="email">Tên Bài Hát:</label>
-					    							      <input  class="form-control" id="email" placeholder="Enter email" name="email">
-					    							    </div>
-					    							    <div class="form-group">
-					    							      <label for="pwd">Album:</label>
-					    							      <input  class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-					    							    </div>
-					    							    <div class="form-group">
-					    							      <label for="pwd">Thể Loại:</label>
-					    							      <input name="img" value=""/>
-					    							    </div>
-					    							    <div class="form-group">
-					    							      <label for="email">Playlist:</label>
-					    							      <input  class="form-control" id="email" placeholder="Enter email" name="email">
-					    							    </div>
-					    							    <div class="form-group">
-					    							      <label for="email">Nghệ Sĩ:</label>
-					    							      <input  class="form-control" id="email" placeholder="Enter email" name="email">
-					    							    </div>
-					    							    <div class="form-group">
-					    							      <label for="email">Ảnh Lớn:</label>
-					    							      <input class="form-control" id="email" placeholder="Enter email" name="email">
-					    							    </div>
-					    							    <div class="form-group">
-					    							      <label for="email">Ảnh Nhỏ:</label>
-					    							      <input class="form-control" id="email" placeholder="Enter email" name="email">
-					    							    </div>
-					    							    <div class="form-group">
-					    							      <label for="email">Audio:</label>
-					    							      <input class="form-control" id="email" placeholder="Enter email" name="email">
-					    							    </div>
-					    							    <button type="submit" class="btn btn-default">Submit</button>
-					    							  </form> -->
+					  		<ul class="AddSearch">
+			    				<li><a href="add.php?table=nghesi">Add</a></li>
+			    				<li><a href="">Search</a></li>
+		    				</ul>
+		    				<h3>Danh sách Nghệ sĩ</h3>
+					    	<table style="width:100%">
+							  <tr>
+							    <th style="width: 10px;">id</th>
+							    <th style="width: 50px;">Name</th>
+							    <th style="width: 10px;">Mô Tả</th>
+							    <th style="width: 10px;">Edit</th>
+							    <th style="width: 10px;">Delete</th>
+							  </tr>
+							  
+							  <?php foreach ($nghesi2 as $a) {?>
+								<tr>
+									<td><?php print_r ($a["id"]);?></td>
+									<td><?php echo $a['name'];?></td>
+									<td><?php echo $a['mota'];?></td>
+									<td><a href="edit.php?id=<?php echo $a['id'];?>&&table=baihat">Edit</a></td>
+									<td><a href="javascript:" class="deletenghesi">Delete</a></td>
+								</tr>
+								
+								<?php }?>
+							  
+							</table>
 					  	</li>
 					  	<li class="hideShowCase">
-					  		<p>3</p>
+					  		<ul class="AddSearch">
+			    				<li><a href="add.php?table=nghesi">Add</a></li>
+			    				<li><a href="">Search</a></li>
+		    				</ul>
+		    				<h3>Danh sách Người dùng</h3>
+					    	<table style="width:100%">
+							  <tr>
+							    <th style="width: 10px;">id</th>
+							    <th style="width: 50px;">Name</th>
+							    <th style="width: 10px;">Mô Tả</th>
+							    <th style="width: 10px;">Edit</th>
+							    <th style="width: 10px;">Delete</th>
+							  </tr>
+							  <?php foreach ($nghesi as $item) {?>
+								<tr>
+									<td><?php print_r($item['id']);?></td>
+									<td><?php echo $item['name'];?></td>
+									<td><?php echo $item['mota'];?></td>
+									<td><a href="edit.php?id=<?php echo $item['id'];?>&&table=baihat">Edit</a></td>
+									<td><a href="javascript:" class="deleteBaihat">Delete</a></td>
+								</tr>
+								<?php } ?>
+							  
+							</table>
 					  	</li>
 					  	<li class="hideShowCase">
-					  		<p>4</p>
+					  		<ul class="AddSearch">
+			    				<li><a href="add.php?table=nghesi">Add</a></li>
+			    				<li><a href="">Search</a></li>
+		    				</ul>
+		    				<h3>Danh sách Playlist</h3>
+					    	<table style="width:100%">
+							  <tr>
+							    <th style="width: 10px;">id</th>
+							    <th style="width: 50px;">Name</th>
+							    <th style="width: 10px;">Mô Tả</th>
+							    <th style="width: 10px;">Edit</th>
+							    <th style="width: 10px;">Delete</th>
+							  </tr>
+							  <?php foreach ($nghesi as $item) {?>
+								<tr>
+									<td><?php print_r($item['id']);?></td>
+									<td><?php echo $item['name'];?></td>
+									<td><?php echo $item['mota'];?></td>
+									<td><a href="edit.php?id=<?php echo $item['id'];?>&&table=baihat">Edit</a></td>
+									<td><a href="javascript:" class="deleteBaihat">Delete</a></td>
+								</tr>
+								<?php } ?>
+							  
+							</table>
 					  	</li>
 					  	<li class="hideShowCase">
-					  		<p>5</p>
+					  		<ul class="AddSearch">
+			    				<li><a href="add.php?table=nghesi">Add</a></li>
+			    				<li><a href="">Search</a></li>
+		    				</ul>
+		    				<h3>Danh sách Thể Loại</h3>
+					    	<table style="width:100%">
+							  <tr>
+							    <th style="width: 10px;">id</th>
+							    <th style="width: 50px;">Name</th>
+							    <th style="width: 10px;">Mô Tả</th>
+							    <th style="width: 10px;">Edit</th>
+							    <th style="width: 10px;">Delete</th>
+							  </tr>
+							  <?php foreach ($nghesi as $item) {?>
+								<tr>
+									<td><?php print_r($item['id']);?></td>
+									<td><?php echo $item['name'];?></td>
+									<td><?php echo $item['mota'];?></td>
+									<td><a href="edit.php?id=<?php echo $item['id'];?>&&table=baihat">Edit</a></td>
+									<td><a href="javascript:" class="deleteBaihat">Delete</a></td>
+								</tr>
+								<?php } ?>
+							  
+							</table>
 					  	</li>
 					  	<li class="hideShowCase">
-					  		<p>6</p>
+					  		<ul class="AddSearch">
+			    				<li><a href="add.php?table=nghesi">Add</a></li>
+			    				<li><a href="">Search</a></li>
+		    				</ul>
+		    				<h3>Danh sách Chủ đề</h3>
+					    	<table style="width:100%">
+							  <tr>
+							    <th style="width: 10px;">id</th>
+							    <th style="width: 50px;">Name</th>
+							    <th style="width: 10px;">Mô Tả</th>
+							    <th style="width: 10px;">Edit</th>
+							    <th style="width: 10px;">Delete</th>
+							  </tr>
+							  <?php foreach ($nghesi as $item) {?>
+								<tr>
+									<td><?php print_r($item['id']);?></td>
+									<td><?php echo $item['name'];?></td>
+									<td><?php echo $item['mota'];?></td>
+									<td><a href="edit.php?id=<?php echo $item['id'];?>&&table=baihat">Edit</a></td>
+									<td><a href="javascript:" class="deleteBaihat">Delete</a></td>
+								</tr>
+								<?php } ?>
+							  
+							</table>
 					  	</li>
 				  </ul>
 		    </div>

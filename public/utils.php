@@ -1,10 +1,29 @@
 <?php
-include("lib_db.php");
 
 function default_statuses(){
 	$ret[] = array("id"=>1,"name"=>"Online");
 	$ret[] = array("id"=>2,"name"=>"Offline");
 	return $ret;
+}
+function getNamebyid($id,$table){
+		if(!isset($id) || !isset($table) )
+		{
+			return "";
+		}
+		$listId = explode(",", $id);
+		$listName = array();
+		$sql = "";
+		foreach ($listId as $value) {
+			if($value == 0)  continue;
+			$sql = "select name from ".$table." where id = ".$value;
+			//print_r($sql);exit();
+			$name = select_one($sql);
+			//print_r($name);exit();	
+			array_push($listName, $name["name"] );
+		}
+		//print_r($listName);exit();
+		$name = implode(",", $listName);
+		return $name;
 }
 function getIdbyname($name,$table){
 	if(!isset($name) || !isset($table) )
@@ -12,31 +31,18 @@ function getIdbyname($name,$table){
 		return "";
 	}
 	$listName = explode(",", $name);
-	$listId = "";
-	$id = 0;
+	$listId = array();
 	$sql = "";
-	foreach ($list as $value) {
-		$sql = "select id from ".$table." where name = ".$value;
+	foreach ($listName as $value) {
+		$sql = "select id from ".$table." where name = '".$value."'";
+		//print_r($sql);exit();
 		$id = select_one($sql);
-		array_push($listId, $id );
+		//print_r($id);exit();	
+		array_push($listId, $id["id"] );
 	}
-	return implode(",", $listId);
-}
-function getNamebyid($id,$table){
-	if(!isset($id) || !isset($table) )
-	{
-		return "";
-	}
-	$listId = explode(",", $id);
-	$listName = "";
-	$name = "";
-	$sql = "";
-	foreach ($list as $value) {
-		$sql = "select id from ".$table." where ".$id." = ".$value;
-		$name = select_one($sql);
-		array_push($listName, $name);
-	}
-	return implode(",", $listName);
+	//print_r($listId);exit();
+	$Id = implode(",", $listId);
+	return $Id;
 }
 function upload_file_by_name($name, $table, $target_dir=""){
 	//print("upload_file_by_name->name=[{$name}]");

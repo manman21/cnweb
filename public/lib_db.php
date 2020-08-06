@@ -7,8 +7,11 @@ function data_to_sql_update($tbl,$data,$cond){
 	foreach ($data as $k=>$v){
 		$vals[] = "{$k}=n'" . sql_str($v) . "'";
 	}
+	if($tbl == "baihat"){
+		$vals[] = "timeupdate = current_timestamp()";
+	}
 	$vals = implode(",",$vals);
-	if ($cond) $cond = " where {$cond}";
+	if ($cond) $cond = " where id = {$cond}";
 	return "update {$tbl} set {$vals} {$cond}";
 }
 function data_to_sql_insert($tbl,$data){
