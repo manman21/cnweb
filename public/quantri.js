@@ -160,7 +160,7 @@ $(document).ready(function(){
                 processData:false,
                 success: function (res) {
                 	alert("ket qua tra ve:" + res +":");
-                	
+
                 }
             });
 	    return false;
@@ -221,7 +221,7 @@ $(document).ready(function(){
 	$(".deleteBaihat").click(function(){
 	 		var id = $("td:parent:eq(0)").text();
 	 		//var id = $(this).parent("td.id").text();
-	 		alert(id);
+	 		//alert(id);
 	 		var table = "baihat";
 	 		var formData = new FormData();
 		    formData.append("id", id);

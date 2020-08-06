@@ -74,11 +74,7 @@
 
 <script>
 $(document).ready(function(){
-	$("#btntest").click(function(e){
-		e.preventDefault();
-	 	return false;
-
-	});
+	
 });
 </script>
 <body>

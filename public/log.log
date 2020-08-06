@@ -20631,3 +20631,58 @@ hoan = 'admin']
 06.08.2020 06:43:29 sql=[SELECT id,name FROM nghesi ] 
 06.08.2020 06:43:29 sql=[SELECT * FROM baihat limit 12] 
 06.08.2020 06:43:29 sql=[SELECT * FROM baihat ORDER BY luotnghetuan DESC limit 10] 
+06.08.2020 08:03:29 sql=[SELECT * FROM baihat where id = 7] 
+06.08.2020 08:03:29 sql=[SELECT * FROM nghesi ] 
+06.08.2020 08:03:29 sql=[select name from nghesi where id = 6] 
+06.08.2020 08:07:58 sql=[SELECT tentaikhoan FROM nguoidung ] 
+06.08.2020 08:07:58 sql=[SELECT * FROM nguoidung where tentaikhoan = 'admin'] 
+06.08.2020 08:08:00 sql=[select * from baihat order by id desc
+	 limit 10  ] 
+06.08.2020 08:08:00 sql=[select * from nghesi ] 
+06.08.2020 08:08:00 sql=[select * from nghesi order by id desc
+	 limit 10] 
+06.08.2020 08:08:00 sql=[select * from nghesi order by id desc
+	 limit 10] 
+06.08.2020 08:09:38 sql=[select * from album ] 
+06.08.2020 08:09:38 sql=[select * from nghesi ] 
+06.08.2020 08:09:38 sql=[select * from playlist ] 
+06.08.2020 08:09:38 sql=[select * from theloai ] 
+06.08.2020 08:10:34 sql=[select id from album where name = 'Dramatic'] 
+06.08.2020 08:10:34 sql=[select id from theloai where name = 'Việt Nam'] 
+06.08.2020 08:10:34 sql=[select id from playlist where name = 'TOP 100 Pop Âu Mỹ'] 
+06.08.2020 08:10:34 sql=[select id from nghesi where name = 'Vũ Phụng Tiên'] 
+06.08.2020 08:10:34 sql=[select id from nghesi where name = 'BlackPink'] 
+06.08.2020 08:10:34 <!-- sql=[insert into baihat (name,img,img_square,audio,idAlbum,idTheloai,idPlaylist,idNghesi) values (n'bài hát',n'images/baihat/top-hinh-nen-sieu-xe-58-20200806-081034.jpg',n'images/baihat/hinh-nen-ve-cuoc-song-18-20200806-081034.jpg',n'audio/shawn_mendes_air_audio_ft_astrid_-20200806-081034.mp3',n'1',n'2',n'1',n'11,5')] --> 
+06.08.2020 08:12:51 sql=[select * from baihat order by id desc
+	 limit 10  ] 
+06.08.2020 08:12:51 sql=[select * from nghesi ] 
+06.08.2020 08:12:51 sql=[select * from nghesi order by id desc
+	 limit 10] 
+06.08.2020 08:12:51 sql=[select * from nghesi order by id desc
+	 limit 10] 
+06.08.2020 08:12:56 sql=[select * from album ] 
+06.08.2020 08:12:56 sql=[select * from nghesi ] 
+06.08.2020 08:12:56 sql=[select * from playlist ] 
+06.08.2020 08:12:56 sql=[select * from theloai ] 
+06.08.2020 08:12:56 sql=[Select * from baihat where id = 60] 
+06.08.2020 08:12:56 sql=[select name from album where id = 1] 
+06.08.2020 08:12:56 sql=[select name from theloai where id = 2] 
+06.08.2020 08:12:56 sql=[select name from playlist where id = 1] 
+06.08.2020 08:12:56 sql=[select name from nghesi where id = 11] 
+06.08.2020 08:12:56 sql=[select name from nghesi where id = 5] 
+06.08.2020 08:13:10 <!-- sql=[update baihat set name=n'bài hát',timeupdate = current_timestamp()  where id = 60] --> 
+06.08.2020 08:17:00 sql=[select * from baihat order by id desc
+	 limit 10  ] 
+06.08.2020 08:17:00 sql=[select * from nghesi ] 
+06.08.2020 08:17:00 sql=[select * from nghesi order by id desc
+	 limit 10] 
+06.08.2020 08:17:00 sql=[select * from nghesi order by id desc
+	 limit 10] 
+06.08.2020 08:17:36 <!-- sql=[delete from baihat  where id = 60] --> 
+06.08.2020 08:18:21 sql=[select * from baihat order by id desc
+	 limit 10  ] 
+06.08.2020 08:18:21 sql=[select * from nghesi ] 
+06.08.2020 08:18:21 sql=[select * from nghesi order by id desc
+	 limit 10] 
+06.08.2020 08:18:21 sql=[select * from nghesi order by id desc
+	 limit 10] 
